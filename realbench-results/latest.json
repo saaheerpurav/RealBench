@@ -1,0 +1,54 @@
+{
+  "run_id": "27938921396",
+  "sha": "a90b2e2732aeb236262ec37a181bfbfb41145272",
+  "created_at": "2026-06-22T08:14:46.773042+00:00",
+  "solution_name": "codev-qwen-7b",
+  "effective_solution": "codev-qwen-7b-smoke-1",
+  "task_level": "system",
+  "run_scope": "smoke",
+  "max_per_task": "1",
+  "num_samples": "1",
+  "formal_requested": "false",
+  "total_records": 4,
+  "syntax_pass": 0,
+  "function_pass": 0,
+  "formal_pass": 0,
+  "rows": [
+    {
+      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:707:1: Redefining existing define: 'SD_BUS_W', with different value: ''\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_top.sv:2045:18: syntax error, unexpected end of file\n%Error: Cannot continue\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    }
+  ]
+}
