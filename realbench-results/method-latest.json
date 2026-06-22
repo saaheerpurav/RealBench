@@ -1,11 +1,11 @@
 {
-  "run_id": "27940291927",
-  "sha": "a745808cb6422ed6eafcd9bddf9f0c6919aac830",
-  "created_at": "2026-06-22T08:42:09.466111+00:00",
+  "run_id": "27940486515",
+  "sha": "020e10427db1f9eb74c437b4c8fa0f8208261199",
+  "created_at": "2026-06-22T08:46:20.171803+00:00",
   "solution_name": "tdes_auto_decompose",
   "task_level": "system",
-  "records": 9,
-  "syntax_pass": 9,
+  "records": 11,
+  "syntax_pass": 11,
   "function_pass": 0,
   "formal_pass": 0,
   "rows": [
@@ -83,6 +83,24 @@
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_aeszero_count11",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_active_high_reset",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_hold_text_on_reset",
       "task": "aes_cipher_top",
       "syntax": 1,
       "function": 0,
