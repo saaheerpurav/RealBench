@@ -110,8 +110,13 @@ def _window(rows: List[dict], start: int, width: int = 16) -> List[dict]:
 
 def _load_windows(rows: List[dict], width: int = 16, limit: int = 8) -> List[dict]:
     out = []
+    prev = None
     for row in rows:
-        if row["ld"] == 1:
+        changed_inputs = (
+            prev is not None
+            and (row["key"] != prev["key"] or row["text_in"] != prev["text_in"])
+        )
+        if row["ld"] == 1 or changed_inputs:
             out.append(
                 {
                     "start_cycle": row["cycle"],
@@ -122,6 +127,7 @@ def _load_windows(rows: List[dict], width: int = 16, limit: int = 8) -> List[dic
             )
         if len(out) >= limit:
             break
+        prev = row
     return out
 
 

@@ -323,13 +323,38 @@ def _load_induced_spec() -> str:
     if TRACE_PATH.exists():
         data = json.loads(TRACE_PATH.read_text(encoding="utf-8"))
         summary = data.get("summary", {})
+        traces = data.get("traces") or []
+        event_windows = []
+        prev = None
+        for row in traces:
+            changed_inputs = (
+                prev is not None
+                and (row.get("key") != prev.get("key") or row.get("text_in") != prev.get("text_in"))
+            )
+            if row.get("ld") == 1 or changed_inputs:
+                start = row.get("cycle")
+                event_windows.append(
+                    {
+                        "start_cycle": start,
+                        "key": row.get("key"),
+                        "text_in": row.get("text_in"),
+                        "trace": [
+                            r
+                            for r in traces
+                            if start <= r.get("cycle", -1) < start + 16
+                        ],
+                    }
+                )
+            prev = row
+            if len(event_windows) >= 8:
+                break
         compact = {
             "num_cycles": summary.get("num_cycles"),
             "unique_text_out_values": summary.get("unique_text_out_values"),
             "done_cycles": (summary.get("done_cycles") or [])[:24],
             "first_20": summary.get("first_20") or [],
             "reset_windows": summary.get("reset_windows") or [],
-            "load_windows": summary.get("load_windows") or [],
+            "load_or_input_change_windows": (summary.get("load_windows") or event_windows)[:8],
         }
         parts.append("```json\n" + json.dumps(compact, indent=2) + "\n```")
     return _trim("\n\n".join(parts), 22000)
