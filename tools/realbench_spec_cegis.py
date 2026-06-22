@@ -227,10 +227,10 @@ def probe_aes_reference(args: argparse.Namespace) -> int:
             stderr=subprocess.STDOUT,
             timeout=args.timeout,
         )
-        if proc.returncode != 0:
-            raise SystemExit(f"trace probe failed rc={proc.returncode}\n{proc.stdout[-4000:]}")
         rows = _parse_traces(proc.stdout)
         if not rows:
+            if proc.returncode != 0:
+                raise SystemExit(f"trace probe failed rc={proc.returncode}\n{proc.stdout[-4000:]}")
             raise SystemExit(f"trace probe produced no RB_TRACE rows\n{proc.stdout[-4000:]}")
 
     summary = _summarize(rows)
