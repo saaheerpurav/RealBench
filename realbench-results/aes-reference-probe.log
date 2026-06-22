@@ -1,0 +1,25 @@
+trace probe failed rc=2
+
+-- ALL ---------------------
+make compile
+make[1]: Entering directory '/run/user/1001/tmpsok0hj2l'
+
+-- COMPILE ----------------
+verilator -cc --exe --binary --trace --assert --coverage-line -fno-table -Wno-SIDEEFFECT -Wno-CASEOVERLAP -Wno-LATCH -Wno-UNOPTFLAT -Wno-MULTIDRIVEN -Wno-ASCRANGE -Wno-COMBDLY -Wno-IMPLICIT -Wno-CASEINCOMPLETE -Wno-PINMISSING -Wno-WIDTHTRUNC -Wno-TIMESCALEMOD -Wno-INITIALDLY -Wno-EOFNEWLINE -Wno-DECLFILENAME -Wno-WIDTHEXPAND  -j 4 --timing -fno-table --top tb *v
+%Warning-MODDUP: aes_key_expand_128.v:1:8: Duplicate declaration of module: 'ref_aes_key_expand_128'
+    1 | module ref_aes_key_expand_128(clk, kld, key, wo_0, wo_1, wo_2, wo_3);
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                 aes_cipher_top_top.sv:190:1: ... note: In file included from 'aes_cipher_top_top.sv'
+                 aes_key_expand_128.v:1:8: ... Location of original declaration
+    1 | module ref_aes_key_expand_128(clk, kld, key, wo_0, wo_1, wo_2, wo_3);
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                 ... For warning description see https://verilator.org/warn/MODDUP?v=5.030
+                 ... Use "/* verilator lint_off MODDUP */" and lint_on around source to disable this message.
+%Error: aes_cipher_top_top.sv:188:20: Can't resolve module reference: 'aes_key_expand_128'
+  188 | aes_key_expand_128 u0(
+      |                    ^~
+%Error: Exiting due to 1 error(s), 1 warning(s)
+make[1]: *** [Makefile:32: compile] Error 1
+make[1]: Leaving directory '/run/user/1001/tmpsok0hj2l'
+make: *** [Makefile:50: all] Error 2
+
