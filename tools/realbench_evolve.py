@@ -155,6 +155,11 @@ Known public behavior/spec facts:
   time 35: dcdededebfbdbdbddcdededebfbdbdbd
 - `done` currently mismatches first around time 305 in the parent.
 - AES uses SubBytes, ShiftRows, MixColumns, AddRoundKey, and AES-128 key expansion.
+- If the parent keeps `text_out` constant at 6363..., that is known to fail.
+- A useful child should make `text_out` advance every clock through a visible
+  AES datapath state, including reset/idle cycles, not wait until final done.
+- Prior sequential-state attempt also failed because its byte/state ordering and
+  round-key timing likely did not match the reference. Explore those directly.
 
 Parent candidate: {score.codeid}
 Parent score:
@@ -219,7 +224,14 @@ def evolve_once(args: argparse.Namespace) -> int:
     scores = _latest_scores()
     if not scores:
         raise SystemExit(f"No verifier summary found at {RESULT_PATH}")
-    parents = [s for s in scores if _candidate_by_id(s.codeid) is not None][: args.parents]
+    if args.parent_codeid:
+        wanted = set(args.parent_codeid)
+        parents = [s for s in scores if s.codeid in wanted and _candidate_by_id(s.codeid) is not None]
+        missing = wanted - {s.codeid for s in parents}
+        if missing:
+            raise SystemExit(f"Requested parent codeids not found/scored: {sorted(missing)}")
+    else:
+        parents = [s for s in scores if _candidate_by_id(s.codeid) is not None][: args.parents]
     if not parents:
         raise SystemExit("No scored parent candidates found in sample JSONL")
 
@@ -282,6 +294,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     evo = sub.add_parser("evolve-once")
     evo.add_argument("--generation", type=int, required=True)
     evo.add_argument("--parents", type=int, default=2)
+    evo.add_argument("--parent-codeid", action="append", default=[])
     evo.add_argument("--children", type=int, default=2)
     evo.add_argument("--model", default="gpt-5.4-mini")
     evo.add_argument("--reasoning-effort", default="low")
