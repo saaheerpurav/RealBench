@@ -100,9 +100,11 @@ jobs:
 
       - name: Probe AES reference trace
         run: |
+          mkdir -p realbench-results
           python tools/realbench_spec_cegis.py probe-aes-reference \
             --out-json realbench-results/aes-reference-traces.json \
-            --out-md realbench-results/aes-spec-induction.md
+            --out-md realbench-results/aes-spec-induction.md \
+            2>&1 | tee realbench-results/aes-reference-probe.log || true
 
       - name: Run method sample
         run: |
@@ -194,6 +196,7 @@ jobs:
           git add realbench-results/method-latest.json realbench-results/method-latest.md realbench-results-method.log
           [ -f realbench-results/aes-reference-traces.json ] && git add realbench-results/aes-reference-traces.json
           [ -f realbench-results/aes-spec-induction.md ] && git add realbench-results/aes-spec-induction.md
+          [ -f realbench-results/aes-reference-probe.log ] && git add realbench-results/aes-reference-probe.log
           if git diff --cached --quiet; then
             echo "No method summary changes to commit."
           else
