@@ -1,10 +1,10 @@
 # RealBench Method Sample
 
-- Run ID: 27951682006
-- Commit: 3d2edbbd16659d93e975618f87f4dcdeb18b42b8
-- Records: 24
-- Syntax pass: 23/24
-- Function pass: 0/24
+- Run ID: 27959694559
+- Commit: 515b7409c532671f794f1fa7f81557440c399cd8
+- Records: 28
+- Syntax pass: 27/28
+- Function pass: 0/28
 
 | Code ID | Task | Syntax | Function | Formal |
 | --- | --- | ---: | ---: | ---: |
@@ -32,3 +32,7 @@
 | evo_g1_p1_c0_tdes_auto_decompose_aes_cipher_top_v_reset_sbox0 | aes_cipher_top | 1 | 0 | -2 |
 | evo_g2_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset_sbox0 | aes_cipher_top | 1 | 0 | -2 |
 | evo_g2_p1_c0_tdes_auto_decompose_aes_cipher_top_v_sequential_ | aes_cipher_top | 0 | 0 | -2 |
+| lcegis_g3_reset_trace_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset | aes_cipher_top | 1 | 0 | -2 |
+| lcegis_g3_round_state_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset | aes_cipher_top | 1 | 0 | -2 |
+| lcegis_g3_key_schedule_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset | aes_cipher_top | 1 | 0 | -2 |
+| lcegis_g3_done_timing_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset | aes_cipher_top | 1 | 0 | -2 |
