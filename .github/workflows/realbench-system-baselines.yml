@@ -1,0 +1,209 @@
+name: RealBench System Baselines
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - realbench-actions
+    paths:
+      - ".github/workflows/realbench-system-baselines.yml"
+  workflow_dispatch:
+
+jobs:
+  baselines:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      BASELINE_SOLUTIONS: "gpt-4o-2024-08-06 o1-preview-2024-09-12 DeepSeek-R1 RTLCoder-Deepseek-v1.1"
+
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnupg make
+
+      - name: Set up micromamba RTL environment
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: realbench
+          create-args: >-
+            -c conda-forge
+            python=3.10
+            gcc=14.3
+            verilator=5.030
+            yosys=0.55
+            binutils
+            pip
+          cache-environment: true
+          cache-downloads: true
+
+      - name: Install Python dependencies
+        run: |
+          pip install joblib tqdm numpy
+
+      - name: Prepare Linux runtime paths
+        run: |
+          sudo mkdir -p "/run/user/$(id -u)"
+          sudo chown "$USER:$USER" "/run/user/$(id -u)"
+
+      - name: Show tool versions
+        run: |
+          python --version
+          verilator --version
+          yosys -V
+          make --version | head -n 1
+
+      - name: Decrypt RealBench specs
+        run: |
+          while IFS= read -r encrypted; do
+            plain="${encrypted%.gpg}"
+            gpg --batch --yes --passphrase "iprc-dip" --decrypt --output "$plain" "$encrypted"
+          done < <(find . -name "*.md.gpg" -print)
+
+      - name: Generate problem files
+        run: |
+          python generate_problem.py --task_level system
+
+      - name: Patch verifier parallelism for GitHub runner
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("run_verify.py")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace("Parallel(n_jobs=40)", "Parallel(n_jobs=2)")
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Run full system baselines
+        run: |
+          mkdir -p realbench-results/logs
+          for solution in $BASELINE_SOLUTIONS; do
+            echo "=== Running $solution system baseline ==="
+            python run_verify.py \
+              --solution_name "$solution" \
+              --task_level system \
+              --num_samples 20 \
+              2>&1 | tee "realbench-results/logs/${solution}-system.log"
+          done
+
+      - name: Summarize full system baselines
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from collections import Counter, defaultdict
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          outdir = Path("realbench-results")
+          outdir.mkdir(exist_ok=True)
+          solutions = os.environ["BASELINE_SOLUTIONS"].split()
+          summary = {
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "sha": os.environ.get("GITHUB_SHA"),
+              "created_at": datetime.now(timezone.utc).isoformat(),
+              "task_level": "system",
+              "num_samples": 20,
+              "solutions": {},
+          }
+
+          for solution in solutions:
+              path = Path("samples_after_verilator") / solution / "system.jsonl"
+              rows = []
+              if path.exists():
+                  with path.open(encoding="utf-8") as f:
+                      for line in f:
+                          if line.strip():
+                              rows.append(json.loads(line))
+              by_task = defaultdict(lambda: {"records": 0, "syntax_pass": 0, "function_pass": 0})
+              errors = Counter()
+              for row in rows:
+                  task = row.get("task")
+                  by_task[task]["records"] += 1
+                  by_task[task]["syntax_pass"] += int(row.get("syntax") == 1)
+                  by_task[task]["function_pass"] += int(row.get("function") == 1)
+                  syntax_info = row.get("syntax_info") or ""
+                  if row.get("syntax") != 1:
+                      if "Cannot find file containing module" in syntax_info:
+                          errors["missing_module"] += 1
+                      elif "syntax error" in syntax_info:
+                          errors["syntax_error"] += 1
+                      elif "Warning" in syntax_info:
+                          errors["warning_as_failure"] += 1
+                      elif syntax_info:
+                          errors["other_syntax_info"] += 1
+                      else:
+                          errors["no_syntax_info"] += 1
+              summary["solutions"][solution] = {
+                  "records": len(rows),
+                  "syntax_pass": sum(int(r.get("syntax") == 1) for r in rows),
+                  "function_pass": sum(int(r.get("function") == 1) for r in rows),
+                  "formal_pass": sum(int(r.get("formal") == 1) for r in rows),
+                  "by_task": dict(by_task),
+                  "error_categories": dict(errors),
+              }
+
+          (outdir / "system-baselines.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+
+          lines = [
+              "# RealBench System Baselines",
+              "",
+              f"- Run ID: {summary['run_id']}",
+              f"- Commit: {summary['sha']}",
+              f"- Created: {summary['created_at']}",
+              f"- Task level: system",
+              f"- Num samples: 20",
+              "",
+              "| Solution | Syntax | Function | Formal | Records |",
+              "| --- | ---: | ---: | ---: | ---: |",
+          ]
+          for solution, data in summary["solutions"].items():
+              records = data["records"]
+              lines.append(
+                  f"| {solution} | {data['syntax_pass']}/{records} | "
+                  f"{data['function_pass']}/{records} | {data['formal_pass']}/{records} | {records} |"
+              )
+          lines.extend(["", "## By Task", ""])
+          for solution, data in summary["solutions"].items():
+              lines.append(f"### {solution}")
+              lines.append("")
+              lines.append("| Task | Syntax | Function | Records |")
+              lines.append("| --- | ---: | ---: | ---: |")
+              for task, row in sorted(data["by_task"].items()):
+                  lines.append(f"| {task} | {row['syntax_pass']} | {row['function_pass']} | {row['records']} |")
+              lines.append("")
+          (outdir / "system-baselines.md").write_text("\n".join(lines), encoding="utf-8")
+          PY
+
+      - name: Upload baseline artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: realbench-system-baselines
+          path: |
+            realbench-results/**
+            samples_after_verilator/**
+          if-no-files-found: ignore
+
+      - name: Commit baseline summary
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add realbench-results/system-baselines.json realbench-results/system-baselines.md realbench-results/logs/*.log
+          if git diff --cached --quiet; then
+            echo "No baseline summary changes to commit."
+          else
+            git commit -m "Record RealBench system baseline suite"
+            git push
+          fi
