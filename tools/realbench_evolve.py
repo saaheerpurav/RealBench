@@ -33,6 +33,31 @@ ROOT = Path(__file__).resolve().parents[1]
 SAMPLE_PATH = ROOT / "samples" / "tdes_auto_decompose" / "system.jsonl"
 RESULT_PATH = ROOT / "realbench-results" / "method-latest.json"
 
+LOCALIZED_REGIONS = {
+    "reset_trace": (
+        "Reset/idle visible-state behavior",
+        "The first mismatch is usually at time 15 or 25. Focus on what text_out "
+        "should expose immediately after reset and before/around the first load. "
+        "Do not hide the state until final ciphertext."
+    ),
+    "round_state": (
+        "Round-state byte ordering and pipeline timing",
+        "The sequential parent advances, but its bytes drift from the reference. "
+        "Focus on state packing/unpacking, ShiftRows ordering, MixColumns column "
+        "layout, and the exact cycle on which each round state is assigned to text_out."
+    ),
+    "key_schedule": (
+        "AES-128 round-key generation and round-key timing",
+        "Focus on w0/w1/w2/w3 ordering, RotWord/SubWord/Rcon placement, and "
+        "whether text_out uses the current or next round key on each clock."
+    ),
+    "done_timing": (
+        "Done/countdown timing",
+        "The function feedback repeatedly reports done mismatches around time 305. "
+        "Focus only on dcnt/countdown/load timing while preserving text_out behavior."
+    ),
+}
+
 
 @dataclass
 class CandidateScore:
@@ -183,6 +208,96 @@ Focus on cycle-level output behavior and visible intermediate state.
 """
 
 
+def _trim(text: str, limit: int = 9000) -> str:
+    text = text or ""
+    if len(text) <= limit:
+        return text
+    return text[: limit // 2] + "\n...[trimmed]...\n" + text[-limit // 2 :]
+
+
+def _parent_row(codeid: str) -> dict:
+    if not RESULT_PATH.exists():
+        return {}
+    data = json.loads(RESULT_PATH.read_text(encoding="utf-8"))
+    return next((r for r in data.get("rows", []) if r.get("codeid") == codeid), {})
+
+
+def _module_names(code: str) -> List[str]:
+    seen = []
+    for name in re.findall(r"\bmodule\s+([A-Za-z_][A-Za-z0-9_$]*)\b", code or ""):
+        if name not in seen:
+            seen.append(name)
+    return seen
+
+
+def _build_localized_prompt(
+    parent: dict,
+    score: CandidateScore,
+    *,
+    region: str,
+    generation: int,
+    child_index: int,
+) -> str:
+    title, guidance = LOCALIZED_REGIONS[region]
+    row = _parent_row(score.codeid)
+    feedback = _trim((row.get("function_info") or "").strip())
+    code = parent["code"]
+    modules = ", ".join(_module_names(code)) or "aes_cipher_top"
+    return f"""You are doing localized CEGIS repair for RealBench AES.
+
+Task: produce a complete replacement SystemVerilog implementation for the
+`aes_cipher_top` system task. The official RealBench system testbench remains
+the only judge.
+
+Target region: {title}
+Region-specific repair guidance:
+{guidance}
+
+Hard constraints:
+- Output exactly one fenced SystemVerilog code block and no prose.
+- Include a complete `aes_cipher_top` top module with this exact interface:
+  module aes_cipher_top(input clk, input rst, input ld, output done, input [127:0] key, input [127:0] text_in, output [127:0] text_out)
+- You may include helper modules in the same code block. Prefer named helpers
+  for localized reasoning, e.g. `aes_state_step`, `aes_key_step`,
+  `aes_state_pack`, or `aes_done_ctrl`.
+- Do not instantiate or redefine RealBench reference modules.
+- Do not read files, use delays, DPI, force/release, randomization, or
+  testbench-only constructs.
+- Preserve syntax pass. A child that fails syntax is useless.
+- Do not solve by hardcoding only the listed trace values. Use them as
+  counterexamples for timing/order repair.
+
+Known public behavior/spec facts:
+- RealBench compares `text_out` and `done` on every clock, not only at the end.
+- The reference exposes visible intermediate AES-like states on `text_out`.
+- Repeated parent plateau: text_out has 286 mismatches, done has 12 mismatches.
+- Common bad child: outputs constant `6363...` after reset and never advances.
+- Common bad child: sequential AES state advances but repeats the same 32-bit
+  pattern across all four columns, suggesting byte packing or column ordering is wrong.
+
+Parent candidate: {score.codeid}
+Parent modules currently present: {modules}
+Parent score:
+- syntax pass: {score.syntax}
+- function pass: {score.function}
+- text mismatches: {score.text_mismatches}
+- done mismatches: {score.done_mismatches}
+- first text mismatch time: {score.first_text_time}
+
+Verifier counterexamples:
+{feedback}
+
+Current parent code:
+```systemverilog
+{code}
+```
+
+Localized CEGIS goal for generation {generation}, child {child_index}:
+Only make changes that directly address `{region}`. Keep other working-looking
+logic stable unless it is tightly coupled to this region. Reduce mismatches.
+"""
+
+
 def _run_codex(prompt: str, *, model: str, effort: str, timeout: int) -> str:
     codex_cmd = shutil.which("codex.cmd") or shutil.which("codex") or "codex"
     with tempfile.NamedTemporaryFile("w", delete=False, suffix=".txt", encoding="utf-8") as tmp:
@@ -274,6 +389,83 @@ def evolve_once(args: argparse.Namespace) -> int:
     return 0 if created else 1
 
 
+def localized_once(args: argparse.Namespace) -> int:
+    scores = _latest_scores()
+    if not scores:
+        raise SystemExit(f"No verifier summary found at {RESULT_PATH}")
+    if args.region == "all":
+        regions = list(LOCALIZED_REGIONS)
+    else:
+        regions = [args.region]
+
+    if args.parent_codeid:
+        wanted = set(args.parent_codeid)
+        parents = [s for s in scores if s.codeid in wanted and _candidate_by_id(s.codeid) is not None]
+        missing = wanted - {s.codeid for s in parents}
+        if missing:
+            raise SystemExit(f"Requested parent codeids not found/scored: {sorted(missing)}")
+    else:
+        parents = [s for s in scores if _candidate_by_id(s.codeid) is not None][: args.parents]
+    if not parents:
+        raise SystemExit("No scored parent candidates found in sample JSONL")
+
+    records = _load_jsonl(SAMPLE_PATH)
+    seen_ids = {r.get("codeid") for r in records}
+    created = 0
+
+    for parent_rank, score in enumerate(parents):
+        parent = _candidate_by_id(score.codeid)
+        assert parent is not None
+        for region in regions:
+            for child_idx in range(args.children):
+                codeid = (
+                    f"lcegis_g{args.generation}_{region}_p{parent_rank}_c{child_idx}_"
+                    f"{score.codeid[:42]}"
+                )
+                if codeid in seen_ids:
+                    continue
+                prompt = _build_localized_prompt(
+                    parent,
+                    score,
+                    region=region,
+                    generation=args.generation,
+                    child_index=child_idx,
+                )
+                print(f"[localized] calling Codex for {codeid}", flush=True)
+                response = _run_codex(
+                    prompt,
+                    model=args.model,
+                    effort=args.reasoning_effort,
+                    timeout=args.timeout,
+                )
+                code = _extract_code(response)
+                if not code:
+                    print(f"[localized] no usable code for {codeid}", file=sys.stderr)
+                    continue
+                records.append(
+                    {
+                        "task": "aes_cipher_top",
+                        "codeid": codeid,
+                        "code": code,
+                        "syntax": -2,
+                        "function": -2,
+                        "formal": -2,
+                        "syntax_info": None,
+                        "function_info": None,
+                        "formal_info": None,
+                        "method": "localized_cegis",
+                        "region": region,
+                        "parent_codeid": score.codeid,
+                    }
+                )
+                seen_ids.add(codeid)
+                created += 1
+
+    _write_jsonl(SAMPLE_PATH, records)
+    print(f"[localized] appended {created} children to {SAMPLE_PATH}")
+    return 0 if created else 1
+
+
 def report(_: argparse.Namespace) -> int:
     for score in _latest_scores()[:10]:
         print(
@@ -300,6 +492,17 @@ def main(argv: Optional[List[str]] = None) -> int:
     evo.add_argument("--reasoning-effort", default="low")
     evo.add_argument("--timeout", type=int, default=300)
     evo.set_defaults(func=evolve_once)
+
+    loc = sub.add_parser("localized-once")
+    loc.add_argument("--generation", type=int, required=True)
+    loc.add_argument("--parents", type=int, default=1)
+    loc.add_argument("--parent-codeid", action="append", default=[])
+    loc.add_argument("--children", type=int, default=1)
+    loc.add_argument("--region", choices=["all", *LOCALIZED_REGIONS.keys()], default="all")
+    loc.add_argument("--model", default="gpt-5.5")
+    loc.add_argument("--reasoning-effort", default="medium")
+    loc.add_argument("--timeout", type=int, default=600)
+    loc.set_defaults(func=localized_once)
 
     args = parser.parse_args(argv)
     return args.func(args)

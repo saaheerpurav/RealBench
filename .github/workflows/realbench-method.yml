@@ -81,11 +81,11 @@ jobs:
           marker = "logic [511:0] wavedrom_title;\n    logic wavedrom_enable;"
           text = text.replace(
               marker,
-              marker + "\n    logic [127:0] first_text_ref, first_text_dut;\n    logic [127:0] trace_text_ref [0:15];\n    logic [127:0] trace_text_dut [0:15];\n    int trace_text_time [0:15];\n    int trace_text_count;\n    logic first_text_seen;"
+              marker + "\n    logic [127:0] first_text_ref, first_text_dut;\n    logic [127:0] trace_text_ref [0:15];\n    logic [127:0] trace_text_dut [0:15];\n    logic [127:0] trace_key [0:15];\n    logic [127:0] trace_text_in [0:15];\n    logic trace_rst [0:15];\n    logic trace_ld [0:15];\n    logic trace_done_ref [0:15];\n    logic trace_done_dut [0:15];\n    int trace_text_time [0:15];\n    int trace_text_count;\n    logic first_text_seen;"
           )
           text = text.replace(
               "if (stats1.errors_text == 0) stats1.errortime_text = $time;\n            stats1.errors_text++;",
-              "if (stats1.errors_text == 0) begin\n                stats1.errortime_text = $time;\n                first_text_ref = text_out_ref;\n                first_text_dut = text_out_dut;\n                first_text_seen = 1'b1;\n            end\n            if (trace_text_count < 16) begin\n                trace_text_time[trace_text_count] = $time;\n                trace_text_ref[trace_text_count] = text_out_ref;\n                trace_text_dut[trace_text_count] = text_out_dut;\n                trace_text_count++;\n            end\n            stats1.errors_text++;"
+              "if (stats1.errors_text == 0) begin\n                stats1.errortime_text = $time;\n                first_text_ref = text_out_ref;\n                first_text_dut = text_out_dut;\n                first_text_seen = 1'b1;\n            end\n            if (trace_text_count < 16) begin\n                trace_text_time[trace_text_count] = $time;\n                trace_text_ref[trace_text_count] = text_out_ref;\n                trace_text_dut[trace_text_count] = text_out_dut;\n                trace_key[trace_text_count] = key;\n                trace_text_in[trace_text_count] = text_in;\n                trace_rst[trace_text_count] = rst;\n                trace_ld[trace_text_count] = ld;\n                trace_done_ref[trace_text_count] = done_ref;\n                trace_done_dut[trace_text_count] = done_dut;\n                trace_text_count++;\n            end\n            stats1.errors_text++;"
           )
           text = text.replace(
               "$display(\"Hint: Output text_out has %0d mismatches. First at time %0d\", \n                    stats1.errors_text, stats1.errortime_text);",
@@ -93,7 +93,7 @@ jobs:
           )
           text = text.replace(
               "$display(\"\\nHint: Total mismatched samples is %1d out of %1d samples\\n\", \n                stats1.errors, stats1.clocks);",
-              "for (int dbg_i = 0; dbg_i < trace_text_count; dbg_i++) begin\n            $display(\"Hint: Output text_trace mismatches idx=%0d time=%0d ref=%032h dut=%032h\", dbg_i, trace_text_time[dbg_i], trace_text_ref[dbg_i], trace_text_dut[dbg_i]);\n        end\n        $display(\"\\nHint: Total mismatched samples is %1d out of %1d samples\\n\", \n                stats1.errors, stats1.clocks);"
+              "for (int dbg_i = 0; dbg_i < trace_text_count; dbg_i++) begin\n            $display(\"Hint: Output text_trace mismatches idx=%0d time=%0d rst=%0b ld=%0b done_ref=%0b done_dut=%0b key=%032h text_in=%032h ref=%032h dut=%032h\", dbg_i, trace_text_time[dbg_i], trace_rst[dbg_i], trace_ld[dbg_i], trace_done_ref[dbg_i], trace_done_dut[dbg_i], trace_key[dbg_i], trace_text_in[dbg_i], trace_text_ref[dbg_i], trace_text_dut[dbg_i]);\n        end\n        $display(\"\\nHint: Total mismatched samples is %1d out of %1d samples\\n\", \n                stats1.errors, stats1.clocks);"
           )
           path.write_text(text, encoding="utf-8")
           PY
