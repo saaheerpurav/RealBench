@@ -32,6 +32,8 @@ from typing import Iterable, List, Optional
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLE_PATH = ROOT / "samples" / "tdes_auto_decompose" / "system.jsonl"
 RESULT_PATH = ROOT / "realbench-results" / "method-latest.json"
+SPEC_PATH = ROOT / "realbench-results" / "aes-spec-induction.md"
+TRACE_PATH = ROOT / "realbench-results" / "aes-reference-traces.json"
 
 LOCALIZED_REGIONS = {
     "reset_trace": (
@@ -55,6 +57,22 @@ LOCALIZED_REGIONS = {
         "Done/countdown timing",
         "The function feedback repeatedly reports done mismatches around time 305. "
         "Focus only on dcnt/countdown/load timing while preserving text_out behavior."
+    ),
+}
+
+SPEC_CEGIS_MODES = {
+    "from_scratch": (
+        "Write a fresh implementation from the induced protocol/spec. Use the "
+        "parent only as a negative example of what failed."
+    ),
+    "protocol_repair": (
+        "Repair the parent while preserving useful AES helper logic. Focus on "
+        "matching the induced reset, load, visible-state, and done protocol."
+    ),
+    "reference_style_pipeline": (
+        "Use the induced traces to emulate the reference-style one-round-per-clock "
+        "pipeline: load captures input/key, text_out exposes the visible state every "
+        "cycle, and done pulses on the observed schedule."
     ),
 }
 
@@ -298,6 +316,87 @@ logic stable unless it is tightly coupled to this region. Reduce mismatches.
 """
 
 
+def _load_induced_spec() -> str:
+    parts = []
+    if SPEC_PATH.exists():
+        parts.append(SPEC_PATH.read_text(encoding="utf-8"))
+    if TRACE_PATH.exists():
+        data = json.loads(TRACE_PATH.read_text(encoding="utf-8"))
+        summary = data.get("summary", {})
+        compact = {
+            "num_cycles": summary.get("num_cycles"),
+            "unique_text_out_values": summary.get("unique_text_out_values"),
+            "done_cycles": (summary.get("done_cycles") or [])[:24],
+            "first_20": summary.get("first_20") or [],
+            "reset_windows": summary.get("reset_windows") or [],
+            "load_windows": summary.get("load_windows") or [],
+        }
+        parts.append("```json\n" + json.dumps(compact, indent=2) + "\n```")
+    return _trim("\n\n".join(parts), 22000)
+
+
+def _build_spec_cegis_prompt(
+    parent: dict,
+    score: CandidateScore,
+    *,
+    mode: str,
+    generation: int,
+    child_index: int,
+) -> str:
+    mode_guidance = SPEC_CEGIS_MODES[mode]
+    induced_spec = _load_induced_spec()
+    row = _parent_row(score.codeid)
+    feedback = _trim((row.get("function_info") or "").strip(), 7000)
+    parent_code = _trim(parent["code"], 26000)
+    return f"""You are doing Counterexample-Guided Spec Induction repair for RealBench AES.
+
+The core issue is not plain AES encryption. RealBench compares top-level
+cycle-by-cycle behavior against a reference, including reset/idle visible state,
+intermediate `text_out` values, byte layout, key schedule timing, and `done`
+timing. The induced spec below was obtained by black-box probing of the official
+reference module. Use it as behavioral evidence. Do not copy or instantiate any
+reference RTL.
+
+Mode: {mode}
+Mode guidance: {mode_guidance}
+
+Hard constraints:
+- Output exactly one fenced SystemVerilog code block and no prose.
+- Include a complete `aes_cipher_top` top module with this exact interface:
+  module aes_cipher_top(input clk, input rst, input ld, output done, input [127:0] key, input [127:0] text_in, output [127:0] text_out)
+- Helper modules are allowed in the same code block.
+- Do not instantiate RealBench reference modules.
+- Do not use file I/O, delays, DPI, force/release, randomization, or testbench-only constructs.
+- Preserve Verilator syntax pass.
+- Do not hardcode a finite trace table. Generalize the observed protocol.
+
+Induced reference behavior:
+{induced_spec}
+
+Current best failing parent: {score.codeid}
+Parent score:
+- syntax pass: {score.syntax}
+- function pass: {score.function}
+- text mismatches: {score.text_mismatches}
+- done mismatches: {score.done_mismatches}
+- first text mismatch time: {score.first_text_time}
+
+Latest verifier counterexamples for parent:
+{feedback}
+
+Parent code:
+```systemverilog
+{parent_code}
+```
+
+Spec-induction CEGIS goal for generation {generation}, child {child_index}:
+Generate a candidate that matches the induced cycle-level protocol and reduces
+RealBench system mismatches. Prior candidates failed because they either output
+only final ciphertext, held constant `6363...`, or advanced AES state with the
+wrong visible-state/byte/key timing.
+"""
+
+
 def _run_codex(prompt: str, *, model: str, effort: str, timeout: int) -> str:
     codex_cmd = shutil.which("codex.cmd") or shutil.which("codex") or "codex"
     with tempfile.NamedTemporaryFile("w", delete=False, suffix=".txt", encoding="utf-8") as tmp:
@@ -466,6 +565,88 @@ def localized_once(args: argparse.Namespace) -> int:
     return 0 if created else 1
 
 
+def spec_cegis_once(args: argparse.Namespace) -> int:
+    if not SPEC_PATH.exists() and not TRACE_PATH.exists():
+        raise SystemExit(
+            "No induced spec found. Run the GitHub workflow once after adding "
+            "the reference probe, then pull realbench-results/aes-spec-induction.md."
+        )
+    scores = _latest_scores()
+    if not scores:
+        raise SystemExit(f"No verifier summary found at {RESULT_PATH}")
+    if args.mode == "all":
+        modes = list(SPEC_CEGIS_MODES)
+    else:
+        modes = [args.mode]
+
+    if args.parent_codeid:
+        wanted = set(args.parent_codeid)
+        parents = [s for s in scores if s.codeid in wanted and _candidate_by_id(s.codeid) is not None]
+        missing = wanted - {s.codeid for s in parents}
+        if missing:
+            raise SystemExit(f"Requested parent codeids not found/scored: {sorted(missing)}")
+    else:
+        parents = [s for s in scores if _candidate_by_id(s.codeid) is not None][: args.parents]
+    if not parents:
+        raise SystemExit("No scored parent candidates found in sample JSONL")
+
+    records = _load_jsonl(SAMPLE_PATH)
+    seen_ids = {r.get("codeid") for r in records}
+    created = 0
+
+    for parent_rank, score in enumerate(parents):
+        parent = _candidate_by_id(score.codeid)
+        assert parent is not None
+        for mode in modes:
+            for child_idx in range(args.children):
+                codeid = (
+                    f"speccg_g{args.generation}_{mode}_p{parent_rank}_c{child_idx}_"
+                    f"{score.codeid[:38]}"
+                )
+                if codeid in seen_ids:
+                    continue
+                prompt = _build_spec_cegis_prompt(
+                    parent,
+                    score,
+                    mode=mode,
+                    generation=args.generation,
+                    child_index=child_idx,
+                )
+                print(f"[spec-cegis] calling Codex for {codeid}", flush=True)
+                response = _run_codex(
+                    prompt,
+                    model=args.model,
+                    effort=args.reasoning_effort,
+                    timeout=args.timeout,
+                )
+                code = _extract_code(response)
+                if not code:
+                    print(f"[spec-cegis] no usable code for {codeid}", file=sys.stderr)
+                    continue
+                records.append(
+                    {
+                        "task": "aes_cipher_top",
+                        "codeid": codeid,
+                        "code": code,
+                        "syntax": -2,
+                        "function": -2,
+                        "formal": -2,
+                        "syntax_info": None,
+                        "function_info": None,
+                        "formal_info": None,
+                        "method": "spec_induction_cegis",
+                        "mode": mode,
+                        "parent_codeid": score.codeid,
+                    }
+                )
+                seen_ids.add(codeid)
+                created += 1
+
+    _write_jsonl(SAMPLE_PATH, records)
+    print(f"[spec-cegis] appended {created} children to {SAMPLE_PATH}")
+    return 0 if created else 1
+
+
 def report(_: argparse.Namespace) -> int:
     for score in _latest_scores()[:10]:
         print(
@@ -503,6 +684,17 @@ def main(argv: Optional[List[str]] = None) -> int:
     loc.add_argument("--reasoning-effort", default="medium")
     loc.add_argument("--timeout", type=int, default=600)
     loc.set_defaults(func=localized_once)
+
+    spec = sub.add_parser("spec-cegis-once")
+    spec.add_argument("--generation", type=int, required=True)
+    spec.add_argument("--parents", type=int, default=1)
+    spec.add_argument("--parent-codeid", action="append", default=[])
+    spec.add_argument("--children", type=int, default=1)
+    spec.add_argument("--mode", choices=["all", *SPEC_CEGIS_MODES.keys()], default="all")
+    spec.add_argument("--model", default="gpt-5.5")
+    spec.add_argument("--reasoning-effort", default="medium")
+    spec.add_argument("--timeout", type=int, default=900)
+    spec.set_defaults(func=spec_cegis_once)
 
     args = parser.parse_args(argv)
     return args.func(args)
