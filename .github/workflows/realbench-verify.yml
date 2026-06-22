@@ -52,7 +52,7 @@ jobs:
     env:
       RB_SOLUTION_NAME: ${{ inputs.solution_name || 'codev-qwen-7b' }}
       RB_TASK_LEVEL: ${{ inputs.task_level || 'system' }}
-      RB_RUN_SCOPE: ${{ inputs.run_scope || 'smoke' }}
+      RB_RUN_SCOPE: ${{ inputs.run_scope || (contains(github.event.head_commit.message, '[full]') && 'full' || 'smoke') }}
       RB_MAX_PER_TASK: ${{ inputs.max_per_task || '1' }}
       RB_NUM_SAMPLES: ${{ inputs.num_samples || '1' }}
       RB_FORMAL: ${{ inputs.formal || false }}
