@@ -1,0 +1,167 @@
+name: RealBench Method Sample
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - realbench-actions
+    paths:
+      - ".github/workflows/realbench-method.yml"
+      - "samples/tdes_auto_decompose/**"
+      - "method_sources/tdes_auto_decompose/**"
+  workflow_dispatch:
+
+jobs:
+  method:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnupg make
+
+      - name: Set up micromamba RTL environment
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: realbench
+          create-args: >-
+            -c conda-forge
+            python=3.10
+            gcc=14.3
+            verilator=5.030
+            yosys=0.55
+            binutils
+            pip
+          cache-environment: true
+          cache-downloads: true
+
+      - name: Install Python dependencies
+        run: |
+          pip install joblib tqdm numpy
+
+      - name: Prepare Linux runtime paths
+        run: |
+          sudo mkdir -p "/run/user/$(id -u)"
+          sudo chown "$USER:$USER" "/run/user/$(id -u)"
+
+      - name: Decrypt RealBench specs
+        run: |
+          while IFS= read -r encrypted; do
+            plain="${encrypted%.gpg}"
+            gpg --batch --yes --passphrase "iprc-dip" --decrypt --output "$plain" "$encrypted"
+          done < <(find . -name "*.md.gpg" -print)
+
+      - name: Patch verifier parallelism for GitHub runner
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("run_verify.py")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace("Parallel(n_jobs=40)", "Parallel(n_jobs=2)")
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Run method sample
+        run: |
+          python run_verify.py \
+            --solution_name tdes_auto_decompose \
+            --task_level system \
+            --num_samples 1 \
+            2>&1 | tee realbench-results-method.log
+
+      - name: Summarize method sample
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          outdir = Path("realbench-results")
+          outdir.mkdir(exist_ok=True)
+          path = Path("samples_after_verilator/tdes_auto_decompose/system.jsonl")
+          rows = []
+          if path.exists():
+              with path.open(encoding="utf-8") as f:
+                  for line in f:
+                      if line.strip():
+                          rows.append(json.loads(line))
+
+          summary = {
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "sha": os.environ.get("GITHUB_SHA"),
+              "created_at": datetime.now(timezone.utc).isoformat(),
+              "solution_name": "tdes_auto_decompose",
+              "task_level": "system",
+              "records": len(rows),
+              "syntax_pass": sum(int(r.get("syntax") == 1) for r in rows),
+              "function_pass": sum(int(r.get("function") == 1) for r in rows),
+              "formal_pass": sum(int(r.get("formal") == 1) for r in rows),
+              "rows": [
+                  {
+                      "task": r.get("task"),
+                      "syntax": r.get("syntax"),
+                      "function": r.get("function"),
+                      "formal": r.get("formal"),
+                      "syntax_info": r.get("syntax_info"),
+                      "function_info": r.get("function_info"),
+                  }
+                  for r in rows
+              ],
+          }
+          (outdir / "method-latest.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+
+          lines = [
+              "# RealBench Method Sample",
+              "",
+              f"- Run ID: {summary['run_id']}",
+              f"- Commit: {summary['sha']}",
+              f"- Records: {summary['records']}",
+              f"- Syntax pass: {summary['syntax_pass']}/{summary['records']}",
+              f"- Function pass: {summary['function_pass']}/{summary['records']}",
+              "",
+              "| Task | Syntax | Function | Formal |",
+              "| --- | ---: | ---: | ---: |",
+          ]
+          for r in summary["rows"]:
+              lines.append(f"| {r['task']} | {r['syntax']} | {r['function']} | {r['formal']} |")
+          if not rows:
+              lines.append("| no result rows found | | | |")
+          (outdir / "method-latest.md").write_text("\n".join(lines), encoding="utf-8")
+          PY
+
+      - name: Upload method artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: realbench-method-sample
+          path: |
+            realbench-results-method.log
+            realbench-results/method-latest.*
+            samples_after_verilator/tdes_auto_decompose/**
+          if-no-files-found: ignore
+
+      - name: Commit method summary
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add realbench-results/method-latest.json realbench-results/method-latest.md realbench-results-method.log
+          if git diff --cached --quiet; then
+            echo "No method summary changes to commit."
+          else
+            git commit -m "Record RealBench method sample summary"
+            git push
+          fi
