@@ -1,0 +1,139 @@
+{
+  "run_id": "27939274626",
+  "sha": "75737336bc05da09a51538505ad1239197e7938d",
+  "created_at": "2026-06-22T08:29:36.011393+00:00",
+  "task_level": "system",
+  "num_samples": 20,
+  "solutions": {
+    "gpt-4o-2024-08-06": {
+      "records": 80,
+      "syntax_pass": 25,
+      "function_pass": 0,
+      "formal_pass": 0,
+      "by_task": {
+        "sdc_controller": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        },
+        "aes_cipher_top": {
+          "records": 20,
+          "syntax_pass": 9,
+          "function_pass": 0
+        },
+        "aes_inv_cipher_top": {
+          "records": 20,
+          "syntax_pass": 16,
+          "function_pass": 0
+        },
+        "e203_cpu_top": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        }
+      },
+      "error_categories": {
+        "warning_as_failure": 14,
+        "missing_module": 6,
+        "other_syntax_info": 13,
+        "syntax_error": 22
+      }
+    },
+    "o1-preview-2024-09-12": {
+      "records": 4,
+      "syntax_pass": 1,
+      "function_pass": 0,
+      "formal_pass": 0,
+      "by_task": {
+        "e203_cpu_top": {
+          "records": 1,
+          "syntax_pass": 0,
+          "function_pass": 0
+        },
+        "aes_inv_cipher_top": {
+          "records": 1,
+          "syntax_pass": 1,
+          "function_pass": 0
+        },
+        "sdc_controller": {
+          "records": 1,
+          "syntax_pass": 0,
+          "function_pass": 0
+        },
+        "aes_cipher_top": {
+          "records": 1,
+          "syntax_pass": 0,
+          "function_pass": 0
+        }
+      },
+      "error_categories": {
+        "syntax_error": 3
+      }
+    },
+    "DeepSeek-R1": {
+      "records": 80,
+      "syntax_pass": 13,
+      "function_pass": 0,
+      "formal_pass": 0,
+      "by_task": {
+        "sdc_controller": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        },
+        "aes_cipher_top": {
+          "records": 20,
+          "syntax_pass": 9,
+          "function_pass": 0
+        },
+        "aes_inv_cipher_top": {
+          "records": 20,
+          "syntax_pass": 4,
+          "function_pass": 0
+        },
+        "e203_cpu_top": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        }
+      },
+      "error_categories": {
+        "warning_as_failure": 22,
+        "other_syntax_info": 18,
+        "syntax_error": 27
+      }
+    },
+    "RTLCoder-Deepseek-v1.1": {
+      "records": 80,
+      "syntax_pass": 0,
+      "function_pass": 0,
+      "formal_pass": 0,
+      "by_task": {
+        "e203_cpu_top": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        },
+        "aes_inv_cipher_top": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        },
+        "aes_cipher_top": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        },
+        "sdc_controller": {
+          "records": 20,
+          "syntax_pass": 0,
+          "function_pass": 0
+        }
+      },
+      "error_categories": {
+        "missing_module": 79,
+        "syntax_error": 1
+      }
+    }
+  }
+}
