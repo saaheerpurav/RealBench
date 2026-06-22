@@ -1,5 +1,8 @@
 name: RealBench Verify
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -198,3 +201,104 @@ jobs:
             samples_after_formal/**
             problems/**
           if-no-files-found: ignore
+
+      - name: Commit verification summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          outdir = Path("realbench-results")
+          outdir.mkdir(exist_ok=True)
+          effective = os.environ.get("EFFECTIVE_SOLUTION", os.environ["RB_SOLUTION_NAME"])
+          task_level = os.environ["RB_TASK_LEVEL"]
+          result_root = Path("samples_after_verilator") / effective
+          rows = []
+
+          if task_level == "system":
+              files = [result_root / "system.jsonl"]
+          else:
+              files = sorted(result_root.glob("*.jsonl"))
+
+          for path in files:
+              if not path.exists():
+                  continue
+              with path.open(encoding="utf-8") as f:
+                  for line in f:
+                      if not line.strip():
+                          continue
+                      r = json.loads(line)
+                      rows.append({
+                          "file": str(path),
+                          "task": r.get("task"),
+                          "syntax": r.get("syntax"),
+                          "function": r.get("function"),
+                          "formal": r.get("formal"),
+                          "syntax_info": r.get("syntax_info"),
+                          "function_info": r.get("function_info"),
+                      })
+
+          total = len(rows)
+          syntax_pass = sum(1 for r in rows if r["syntax"] == 1)
+          function_pass = sum(1 for r in rows if r["function"] == 1)
+          formal_pass = sum(1 for r in rows if r["formal"] == 1)
+
+          summary = {
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "sha": os.environ.get("GITHUB_SHA"),
+              "created_at": datetime.now(timezone.utc).isoformat(),
+              "solution_name": os.environ["RB_SOLUTION_NAME"],
+              "effective_solution": effective,
+              "task_level": task_level,
+              "run_scope": os.environ["RB_RUN_SCOPE"],
+              "max_per_task": os.environ["RB_MAX_PER_TASK"],
+              "num_samples": os.environ["RB_NUM_SAMPLES"],
+              "formal_requested": os.environ["RB_FORMAL"],
+              "total_records": total,
+              "syntax_pass": syntax_pass,
+              "function_pass": function_pass,
+              "formal_pass": formal_pass,
+              "rows": rows,
+          }
+
+          (outdir / "latest.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+
+          lines = [
+              "# RealBench Verification Summary",
+              "",
+              f"- Run ID: {summary['run_id']}",
+              f"- Commit: {summary['sha']}",
+              f"- Solution: {summary['solution_name']}",
+              f"- Effective solution: {effective}",
+              f"- Task level: {task_level}",
+              f"- Scope: {summary['run_scope']}",
+              f"- Records: {total}",
+              f"- Syntax pass: {syntax_pass}/{total}",
+              f"- Function pass: {function_pass}/{total}",
+              f"- Formal pass: {formal_pass}/{total}",
+              "",
+              "## Per Record",
+              "",
+              "| Task | Syntax | Function | Formal |",
+              "| --- | ---: | ---: | ---: |",
+          ]
+          for r in rows:
+              lines.append(f"| {r['task']} | {r['syntax']} | {r['function']} | {r['formal']} |")
+          if not rows:
+              lines.append("| no result rows found | | | |")
+          lines.append("")
+          (outdir / "latest.md").write_text("\n".join(lines), encoding="utf-8")
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add realbench-results/latest.json realbench-results/latest.md
+          if git diff --cached --quiet; then
+            echo "No verification summary changes to commit."
+          else
+            git commit -m "Record RealBench verification summary"
+            git push
+          fi
