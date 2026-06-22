@@ -11,6 +11,8 @@ on:
       - ".github/workflows/realbench-method.yml"
       - "samples/tdes_auto_decompose/**"
       - "method_sources/tdes_auto_decompose/**"
+      - "tools/realbench_spec_cegis.py"
+      - "tools/realbench_evolve.py"
   workflow_dispatch:
 
 jobs:

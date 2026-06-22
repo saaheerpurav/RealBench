@@ -214,6 +214,9 @@ def probe_aes_reference(args: argparse.Namespace) -> int:
     with tempfile.TemporaryDirectory(dir=tmp_parent) as td:
         work = Path(td)
         _copy_tree(AES_SYSTEM, work)
+        candidate_top = work / "aes_cipher_top_top.sv"
+        if candidate_top.exists():
+            candidate_top.unlink()
         (work / "aes_cipher_top_testbench.sv").write_text(TRACE_TB, encoding="utf-8")
         proc = subprocess.run(
             "make all",
