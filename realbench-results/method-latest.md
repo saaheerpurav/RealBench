@@ -1,10 +1,10 @@
 # RealBench Method Sample
 
-- Run ID: 27963597731
-- Commit: 46473be63f3ae8e05225be38ed3a645c64d4daed
-- Records: 28
-- Syntax pass: 27/28
-- Function pass: 0/28
+- Run ID: 27964534329
+- Commit: 5fb981b57d6a353ca8eca89f948d253d62eeac87
+- Records: 31
+- Syntax pass: 30/31
+- Function pass: 0/31
 
 | Code ID | Task | Syntax | Function | Formal |
 | --- | --- | ---: | ---: | ---: |
@@ -36,3 +36,6 @@
 | lcegis_g3_round_state_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset | aes_cipher_top | 1 | 0 | -2 |
 | lcegis_g3_key_schedule_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset | aes_cipher_top | 1 | 0 | -2 |
 | lcegis_g3_done_timing_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset | aes_cipher_top | 1 | 0 | -2 |
+| speccg_g4_from_scratch_p0_c0_tdes_auto_decompose_aes_cipher_top_v_r | aes_cipher_top | 1 | 0 | -2 |
+| speccg_g4_protocol_repair_p0_c0_tdes_auto_decompose_aes_cipher_top_v_r | aes_cipher_top | 1 | 0 | -2 |
+| speccg_g4_reference_style_pipeline_p0_c0_tdes_auto_decompose_aes_cipher_top_v_r | aes_cipher_top | 1 | 0 | -2 |

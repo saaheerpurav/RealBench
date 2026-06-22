@@ -68,6 +68,142 @@ The final judge remains the original RealBench system testbench.
 - c63/+7: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=a1f6258c877d5fcd8964484538bfc92c
 
 ## Load Windows
+### Load Window 0 starting cycle 19 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff
+- c19/+0: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=c21cfa381fbab6e11ddb3027b4267c29
+- c20/+1: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=3b78ae87aa28a6bb3faa624055cff2f3
+- c21/+2: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=d10002a2881fdb5b816bfcf13cdb4e2f
+- c22/+3: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=c0879271ddedd34ab22f2cb0db10ef41
+- c23/+4: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=22c246efcbe77e876587358f830926b9
+- c24/+5: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=1ba6fb632a72279b3e8f9a97ef4c359a
+- c25/+6: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=e9de31f192a30e3209fcbb4895a56836
+- c26/+7: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=b0e9e9b54bf9285c182eabdcec06fce6
+- c27/+8: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=0b1c82e3eaf873de64e3fd904485b352
+- c28/+9: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=d00cc799a7b6305b46ff1946b7b1b095
+- c29/+10: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=ee06bd138b161370470c167f87e2354d
+- c30/+11: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=950b17dac97db2e6753970bba11c5934
+- c31/+12: rst=1 ld=0 done=1 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=3c441f32ce07822364d7a2990e50bb13
+- c32/+13: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=b6183d3ce884b2a5060ddbed103340a4
+- c33/+14: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=5681ef68dad580f8101011d7c98ec260
+- c34/+15: rst=1 ld=0 done=0 key=000102030405060708090a0b0c0d0e0f text_in=ffffffffffffffffffffffffffffffff text_out=cec5c83f519e00eaf6be3d94e9a0a17f
+### Load Window 1 starting cycle 51 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000
+- c51/+0: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=495f15349c09819a336f64ce2b6a8437
+- c52/+1: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=74867fb3ff76d89d4c1ef8ac7f1f1b59
+- c53/+2: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=da97d7a01ace486fcd9784095c06397a
+- c54/+3: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=feffffff01000000feffffff01000000
+- c55/+4: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=16cdb87ac6aedb19e9324785395124e6
+- c56/+5: rst=0 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=c33741af642ba4683eaedd2b2ddebd82
+- c57/+6: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=d9a3689470e322685839af369e84bec2
+- c58/+7: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=01885f0ea77069b707a0950a399f745a
+- c59/+8: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=8f8684aad3b7388bdc7bb6573a744045
+- c60/+9: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=8d5b7901a4af4e2cc2bbe80272405514
+- c61/+10: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=3d433f0ba3bb0508a060f746a49f3694
+- c62/+11: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=89f5f46a24bbb6c083193010f77d7a64
+- c63/+12: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=a1f6258c877d5fcd8964484538bfc92c
+- c64/+13: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=1bc93864d91e6b71d9d8aa1392ff8bd1
+- c65/+14: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=9ae2c00f77b827bce057c0070eb8b7d2
+- c66/+15: rst=1 ld=0 done=0 key=ffffffffffffffffffffffffffffffff text_in=00000000000000000000000000000000 text_out=ac3797e5d2a8852a70cd3d4550783303
+### Load Window 2 starting cycle 73 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+- c73/+0: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=06d96fe705a0eb3c836f8ceca535c034
+- c74/+1: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=c2448ec2dd24b21acdc72327e965ded6
+- c75/+2: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=ba2b5db87a2ca8bd4ae4fbbc9e49db5e
+- c76/+3: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=cecfcfcfcecfcfcfcecfcfcfcecfcfcf
+- c77/+4: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=10121243727171201012124372717120
+- c78/+5: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=edc64976ca119ef38fa52a15a872fd90
+- c79/+6: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=cb8c33b06e140a28950f8632d98f2c63
+- c80/+7: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=0446c9a22224f424a11a511c1f8dd856
+- c81/+8: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=75644cccde5f8a356bcbe7533ffb8b52
+- c82/+9: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=7e195ec5d864640d4b5b1c03792c7caf
+- c83/+10: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=b9cc0d7cf90dadfe92a55bd07d628092
+- c84/+11: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=fc1c215d41cb6ffa93529a665ad04a97
+- c85/+12: rst=1 ld=0 done=1 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=8522717d3ad1fbfeafa1ceaafdf56565
+- c86/+13: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=a80a827d9235d142adaed2aee73e937f
+- c87/+14: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=49812bcfce5b5cf78e6d569b5642e704
+- c88/+15: rst=1 ld=0 done=0 key=00000000000000000000000000000000 text_in=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_out=888d383960f96df7ce61ccf52a460ba3
+### Load Window 3 starting cycle 89 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555
+- c89/+0: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=dc27e1f7cd70f42a4be473aaa80fa539
+- c90/+1: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=e84ce2811e4a76317218f761620ad9e3
+- c91/+2: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=5090da8770055e9104e83e58c355200d
+- c92/+3: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=7e101010bbbababa11101010bbbababa
+- c93/+4: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=1e635d67d3f1cf0dbcc9efcd7943655f
+- c94/+5: rst=0 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=2b69b09bb52e46c975115440f34e847f
+- c95/+6: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=32d3fe02a0de5812bdc991d29fcdc1f7
+- c96/+7: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=b73f7425a69a0e9b5f85c67e017fbd06
+- c97/+8: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=69a7121e6a6596b6cf951872393e6636
+- c98/+9: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=b4377994e90d5a56355d57c518af2fc1
+- c99/+10: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=28b06bafa48b06aa2903b60bbba38fee
+- c100/+11: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=650892a3b429ef4e3dc37fac2dae57f0
+- c101/+12: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=e45803dfc6ec9dbc07550f739bf305ad
+- c102/+13: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=0daeb8420d9e018b50dafe71b11264c9
+- c103/+14: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=216b8ec73f46b60d4e33fb496b89aafb
+- c104/+15: rst=1 ld=0 done=0 key=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa text_in=05555555555555555555555555555555 text_out=5ce93afff73c51efd9e94178cf7f7206
+### Load Window 4 starting cycle 111 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef
+- c111/+0: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=755e08abcd1ab8f2c78b123d7cb75c5b
+- c112/+1: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=69e877e19d43c673141fca96fa0a0309
+- c113/+2: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=bf20f76d30af50ce7f40b27e7f26441e
+- c114/+3: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=0a12635d2bc4badfd812635d2bc4badf
+- c115/+4: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=9508edc06f1987374c5d09953aa7d226
+- c116/+5: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=e16027797db0e9c2922c7896322771c6
+- c117/+6: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=bbc39b3d3a7fe8aba29fdcdeab2e3e93
+- c118/+7: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=e21450c093a60f8cd123a1ce15f2ca28
+- c119/+8: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=d7cc9fcaad67bee48c72d23d5f9c6038
+- c120/+9: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=bda3710b834c94ddf33d2dd9dbcf58f7
+- c121/+10: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=8deb2bca46d4fe5a159b47f05b174a53
+- c122/+11: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=effe44f5b4769aac11cf88d8687aa530
+- c123/+12: rst=1 ld=0 done=1 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=894aab190623891be0d5b4cb9f819b48
+- c124/+13: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=a893767f4986d664a69ddbb05b43b18d
+- c125/+14: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=f6d5fc27ac2a51a7e94563c11faa84cd
+- c126/+15: rst=1 ld=0 done=0 key=05555555555555555555555555555555 text_in=0123456789abcdef0123456789abcdef text_out=51d476b57b0fc5e7f75b6ab7d88d7735
+### Load Window 5 starting cycle 127 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f
+- c127/+0: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=df337072b8da3ed1a8bd533b12dbc77c
+- c128/+1: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=1d55b30f1a2227c30ffd0e30aaa8f761
+- c129/+2: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=de622fc642e7871c42a02af53550cc7a
+- c130/+3: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=1e7a1e21b6d0796ceb32b2d3f42ec0f7
+- c131/+4: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=f2c4919ec140c840131026cbd13e6463
+- c132/+5: rst=0 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=87197a459f4ec8c4af393c75850e3fa0
+- c133/+6: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=dce5f90d980d1effb68c664e45fca54d
+- c134/+7: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=106d2ad5be084a9d6143a434aa247626
+- c135/+8: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=39546276f210a53d9c9f7d2517f0acf3
+- c136/+9: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=0ddec4808e4f028c6ed61c9b1d5408d9
+- c137/+10: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=587f1b7f6d9d5acd5ae74157b8d3a832
+- c138/+11: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=e61df42d73b530d970e09af6de5ee143
+- c139/+12: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=ad9562241f632664a422d562f753aaa3
+- c140/+13: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=51b2c785cb3df64077dd4c43726b44bf
+- c141/+14: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=6a7538177ddeee902f0eddf958768fc9
+- c142/+15: rst=1 ld=0 done=0 key=0123456789abcdef0123456789abcdef text_in=000102030405060708090a0b0c0d0e0f text_out=2295582c0dde8810121ae25586006563
+### Load Window 6 starting cycle 149 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876
+- c149/+0: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=b7b974a99f393f04bc20497e2fc23382
+- c150/+1: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=98970ff1c5ec1d50eec36693bc727fb9
+- c151/+2: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=f33c55adfc4ee2ee66c6c3a4b749f097
+- c152/+3: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=2f990a812f9963a02fc20aa0d2ef7964
+- c153/+4: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=09b48db2c1bd14918758a5628cb252c2
+- c154/+5: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=e5813d77a68b3952617789cc09fd3434
+- c155/+6: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=500f7c604a80665fc48f50e5e532bdeb
+- c156/+7: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=a574f608b24df5727ec72b76f4bb5bc2
+- c157/+8: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=cc57ffecc3fdd2cde734f7852c655f08
+- c158/+9: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=2f1bea1dd0ebfab55ded021c8779e219
+- c159/+10: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=1529012a22384b16835f66629dbdab4b
+- c160/+11: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=858a1a3cfd790b77fcbc250dbf0ef671
+- c161/+12: rst=1 ld=0 done=1 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=0b10326b9b23114aef5e5ee38e05e4c6
+- c162/+13: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=d6c4123a7b78237f71882f65f317cc13
+- c163/+14: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=8a8d6f98bcd0f9e21998721ecffc3799
+- c164/+15: rst=1 ld=0 done=0 key=000000000000000000000000797673c4 text_in=ffffffffffffffffffffffff0d131876 text_out=aee22a0a1a8b4ceae34f176b39a7c259
+### Load Window 7 starting cycle 165 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6
+- c165/+0: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=d1056aefd0340a48e2420652f042a074
+- c166/+1: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=b04cd2f778261b01c7487ec3fdd1f7ed
+- c167/+2: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=bd3441e020578b23e067c70e0bee827b
+- c168/+3: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=655ac895655a0a3d658dc83de04495a1
+- c169/+4: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=cc65b7a35e330684b4d48681f07bafa7
+- c170/+5: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=1bd9abfea52f89dd9b16f6d7e3b0269f
+- c171/+6: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=e75e1e3b8f3458cd305a9aeef96d9999
+- c172/+7: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=5d9901e005e66e5f3101cd48b563894d
+- c173/+8: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=48407ba2ed4ac13643e83c3ec9610fb6
+- c174/+9: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=336335e0f56f96d35d6692c33f0f5b4a
+- c175/+10: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=ce1a81c1a5602077323ebf13d0bb9a35
+- c176/+11: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=e9591641a2b10fafc0097245d4176a58
+- c177/+12: rst=1 ld=0 done=1 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=19877c3a8645eda1a56e70bd7cd5fb51
+- c178/+13: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=d19c6a7de27a27285a2495b5a2d8b438
+- c179/+14: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=aabd92efaaa48e7c7a151ece196f329d
+- c180/+15: rst=1 ld=0 done=0 key=0000000000000000000000000b1e5d9c text_in=ffffffffffffffffffffffffe9c344c6 text_out=2701abfe9b0dc0ca568480d876b85fbf
 
 ## Repair-Relevant Facts
 - `text_out` is checked every clock, not only when `done=1`.
