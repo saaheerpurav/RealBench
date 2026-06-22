@@ -15,7 +15,7 @@ on:
       task_level:
         description: "RealBench task level"
         required: true
-        default: "module"
+        default: "system"
         type: choice
         options:
           - module
@@ -46,6 +46,13 @@ jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 360
+    env:
+      RB_SOLUTION_NAME: ${{ inputs.solution_name || 'codev-qwen-7b' }}
+      RB_TASK_LEVEL: ${{ inputs.task_level || 'system' }}
+      RB_RUN_SCOPE: ${{ inputs.run_scope || 'smoke' }}
+      RB_MAX_PER_TASK: ${{ inputs.max_per_task || '1' }}
+      RB_NUM_SAMPLES: ${{ inputs.num_samples || '1' }}
+      RB_FORMAL: ${{ inputs.formal || false }}
 
     defaults:
       run:
@@ -110,9 +117,9 @@ jobs:
           import os
           import shutil
 
-          solution_name = "${{ inputs.solution_name }}"
-          run_scope = "${{ inputs.run_scope }}"
-          max_per_task = int("${{ inputs.max_per_task }}")
+          solution_name = os.environ["RB_SOLUTION_NAME"]
+          run_scope = os.environ["RB_RUN_SCOPE"]
+          max_per_task = int(os.environ["RB_MAX_PER_TASK"])
 
           src = os.path.join("samples", solution_name)
           if not os.path.isdir(src):
@@ -163,7 +170,7 @@ jobs:
           PY
 
       - name: Refuse formal verification without JasperGold
-        if: ${{ inputs.formal }}
+        if: ${{ env.RB_FORMAL == 'true' }}
         run: |
           command -v jaspergold
 
@@ -172,10 +179,10 @@ jobs:
           args=(
             python run_verify.py
             --solution_name "$EFFECTIVE_SOLUTION"
-            --task_level "${{ inputs.task_level }}"
-            --num_samples "${{ inputs.num_samples }}"
+            --task_level "$RB_TASK_LEVEL"
+            --num_samples "$RB_NUM_SAMPLES"
           )
-          if [[ "${{ inputs.formal }}" == "true" ]]; then
+          if [[ "$RB_FORMAL" == "true" ]]; then
             args+=(--formal)
           fi
           "${args[@]}" 2>&1 | tee realbench-verify.log
@@ -184,7 +191,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: realbench-${{ inputs.solution_name }}-${{ inputs.task_level }}-${{ inputs.run_scope }}
+          name: realbench-${{ env.RB_SOLUTION_NAME }}-${{ env.RB_TASK_LEVEL }}-${{ env.RB_RUN_SCOPE }}
           path: |
             realbench-verify.log
             samples_after_verilator/**
