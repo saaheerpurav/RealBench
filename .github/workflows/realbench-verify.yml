@@ -1,0 +1,188 @@
+name: RealBench Verify
+
+on:
+  workflow_dispatch:
+    inputs:
+      solution_name:
+        description: "Folder under samples/ containing JSONL files"
+        required: true
+        default: "codev-qwen-7b"
+      task_level:
+        description: "RealBench task level"
+        required: true
+        default: "module"
+        type: choice
+        options:
+          - module
+          - system
+      run_scope:
+        description: "Use smoke for first verifier checks; full evaluates the whole solution folder"
+        required: true
+        default: "smoke"
+        type: choice
+        options:
+          - smoke
+          - full
+      max_per_task:
+        description: "Smoke mode only: max records kept per task"
+        required: true
+        default: "1"
+      num_samples:
+        description: "Passed to run_verify.py for pass@k calculation"
+        required: true
+        default: "1"
+      formal:
+        description: "Run formal verification too; requires JasperGold on the runner"
+        required: true
+        default: false
+        type: boolean
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnupg make
+
+      - name: Set up micromamba RTL environment
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: realbench
+          create-args: >-
+            -c conda-forge
+            python=3.10
+            gcc=14.3
+            verilator=5.030
+            yosys=0.55
+            binutils
+            pip
+          cache-environment: true
+          cache-downloads: true
+
+      - name: Install Python dependencies
+        run: |
+          pip install joblib tqdm numpy
+
+      - name: Prepare Linux runtime paths
+        run: |
+          sudo mkdir -p "/run/user/$(id -u)"
+          sudo chown "$USER:$USER" "/run/user/$(id -u)"
+
+      - name: Show tool versions
+        run: |
+          python --version
+          verilator --version
+          yosys -V
+          make --version | head -n 1
+
+      - name: Decrypt RealBench specs
+        run: |
+          while IFS= read -r encrypted; do
+            plain="${encrypted%.gpg}"
+            gpg --batch --yes --passphrase "iprc-dip" --decrypt --output "$plain" "$encrypted"
+          done < <(find . -name "*.md.gpg" -print)
+
+      - name: Generate problem files
+        run: |
+          python generate_problem.py --task_level module
+          python generate_problem.py --task_level system
+
+      - name: Prepare selected samples
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import shutil
+
+          solution_name = "${{ inputs.solution_name }}"
+          run_scope = "${{ inputs.run_scope }}"
+          max_per_task = int("${{ inputs.max_per_task }}")
+
+          src = os.path.join("samples", solution_name)
+          if not os.path.isdir(src):
+              raise SystemExit(f"Missing samples folder: {src}")
+
+          if run_scope == "full":
+              print(f"EFFECTIVE_SOLUTION={solution_name}")
+              with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
+                  env.write(f"EFFECTIVE_SOLUTION={solution_name}\n")
+              raise SystemExit(0)
+
+          dst_name = f"{solution_name}-smoke-{max_per_task}"
+          dst = os.path.join("samples", dst_name)
+          if os.path.exists(dst):
+              shutil.rmtree(dst)
+          os.makedirs(dst, exist_ok=True)
+
+          for name in os.listdir(src):
+              if not name.endswith(".jsonl"):
+                  continue
+              counts = {}
+              src_file = os.path.join(src, name)
+              dst_file = os.path.join(dst, name)
+              with open(src_file, "r", encoding="utf-8") as fin, open(dst_file, "w", encoding="utf-8") as fout:
+                  for line in fin:
+                      if not line.strip():
+                          continue
+                      record = json.loads(line)
+                      task = record["task"]
+                      if counts.get(task, 0) >= max_per_task:
+                          continue
+                      fout.write(json.dumps(record) + "\n")
+                      counts[task] = counts.get(task, 0) + 1
+              print(dst_file, "tasks", len(counts), "records", sum(counts.values()))
+
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
+              env.write(f"EFFECTIVE_SOLUTION={dst_name}\n")
+          PY
+
+      - name: Patch verifier parallelism for GitHub runner
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("run_verify.py")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace("Parallel(n_jobs=40)", "Parallel(n_jobs=2)")
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Refuse formal verification without JasperGold
+        if: ${{ inputs.formal }}
+        run: |
+          command -v jaspergold
+
+      - name: Run RealBench verification
+        run: |
+          args=(
+            python run_verify.py
+            --solution_name "$EFFECTIVE_SOLUTION"
+            --task_level "${{ inputs.task_level }}"
+            --num_samples "${{ inputs.num_samples }}"
+          )
+          if [[ "${{ inputs.formal }}" == "true" ]]; then
+            args+=(--formal)
+          fi
+          "${args[@]}" 2>&1 | tee realbench-verify.log
+
+      - name: Upload verification artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: realbench-${{ inputs.solution_name }}-${{ inputs.task_level }}-${{ inputs.run_scope }}
+          path: |
+            realbench-verify.log
+            samples_after_verilator/**
+            samples_after_formal/**
+            problems/**
+          if-no-files-found: ignore
