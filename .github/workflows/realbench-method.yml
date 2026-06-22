@@ -72,6 +72,28 @@ jobs:
           path.write_text(text, encoding="utf-8")
           PY
 
+      - name: Add AES debug feedback to testbench
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("system/aes_cipher_top/aes_cipher_top_testbench.sv")
+          text = path.read_text(encoding="utf-8")
+          marker = "logic [511:0] wavedrom_title;\n    logic wavedrom_enable;"
+          text = text.replace(
+              marker,
+              marker + "\n    logic [127:0] first_text_ref, first_text_dut;\n    logic first_text_seen;"
+          )
+          text = text.replace(
+              "if (stats1.errors_text == 0) stats1.errortime_text = $time;\n            stats1.errors_text++;",
+              "if (stats1.errors_text == 0) begin\n                stats1.errortime_text = $time;\n                first_text_ref = text_out_ref;\n                first_text_dut = text_out_dut;\n                first_text_seen = 1'b1;\n            end\n            stats1.errors_text++;"
+          )
+          text = text.replace(
+              "$display(\"Hint: Output text_out has %0d mismatches. First at time %0d\", \n                    stats1.errors_text, stats1.errortime_text);",
+              "$display(\"Hint: Output text_out has %0d mismatches. First at time %0d ref=%032h dut=%032h\", \n                    stats1.errors_text, stats1.errortime_text, first_text_ref, first_text_dut);"
+          )
+          path.write_text(text, encoding="utf-8")
+          PY
+
       - name: Run method sample
         run: |
           python run_verify.py \
