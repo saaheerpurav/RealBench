@@ -111,6 +111,7 @@ jobs:
               "formal_pass": sum(int(r.get("formal") == 1) for r in rows),
               "rows": [
                   {
+                      "codeid": r.get("codeid"),
                       "task": r.get("task"),
                       "syntax": r.get("syntax"),
                       "function": r.get("function"),
@@ -132,11 +133,11 @@ jobs:
               f"- Syntax pass: {summary['syntax_pass']}/{summary['records']}",
               f"- Function pass: {summary['function_pass']}/{summary['records']}",
               "",
-              "| Task | Syntax | Function | Formal |",
-              "| --- | ---: | ---: | ---: |",
+              "| Code ID | Task | Syntax | Function | Formal |",
+              "| --- | --- | ---: | ---: | ---: |",
           ]
           for r in summary["rows"]:
-              lines.append(f"| {r['task']} | {r['syntax']} | {r['function']} | {r['formal']} |")
+              lines.append(f"| {r['codeid']} | {r['task']} | {r['syntax']} | {r['function']} | {r['formal']} |")
           if not rows:
               lines.append("| no result rows found | | | |")
           (outdir / "method-latest.md").write_text("\n".join(lines), encoding="utf-8")
