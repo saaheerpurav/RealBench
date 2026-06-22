@@ -1,25 +1,32 @@
 trace probe failed rc=2
-
--- ALL ---------------------
-make compile
-make[1]: Entering directory '/run/user/1001/tmpsok0hj2l'
-
--- COMPILE ----------------
-verilator -cc --exe --binary --trace --assert --coverage-line -fno-table -Wno-SIDEEFFECT -Wno-CASEOVERLAP -Wno-LATCH -Wno-UNOPTFLAT -Wno-MULTIDRIVEN -Wno-ASCRANGE -Wno-COMBDLY -Wno-IMPLICIT -Wno-CASEINCOMPLETE -Wno-PINMISSING -Wno-WIDTHTRUNC -Wno-TIMESCALEMOD -Wno-INITIALDLY -Wno-EOFNEWLINE -Wno-DECLFILENAME -Wno-WIDTHEXPAND  -j 4 --timing -fno-table --top tb *v
-%Warning-MODDUP: aes_key_expand_128.v:1:8: Duplicate declaration of module: 'ref_aes_key_expand_128'
-    1 | module ref_aes_key_expand_128(clk, kld, key, wo_0, wo_1, wo_2, wo_3);
-      |        ^~~~~~~~~~~~~~~~~~~~~~
-                 aes_cipher_top_top.sv:190:1: ... note: In file included from 'aes_cipher_top_top.sv'
-                 aes_key_expand_128.v:1:8: ... Location of original declaration
-    1 | module ref_aes_key_expand_128(clk, kld, key, wo_0, wo_1, wo_2, wo_3);
-      |        ^~~~~~~~~~~~~~~~~~~~~~
-                 ... For warning description see https://verilator.org/warn/MODDUP?v=5.030
-                 ... Use "/* verilator lint_off MODDUP */" and lint_on around source to disable this message.
-%Error: aes_cipher_top_top.sv:188:20: Can't resolve module reference: 'aes_key_expand_128'
-  188 | aes_key_expand_128 u0(
-      |                    ^~
-%Error: Exiting due to 1 error(s), 1 warning(s)
-make[1]: *** [Makefile:32: compile] Error 1
-make[1]: Leaving directory '/run/user/1001/tmpsok0hj2l'
-make: *** [Makefile:50: all] Error 2
+ffffffffffffffffffabd60036 text_out=debdb370420d1f38c580ac46543ac718
+RB_TRACE cycle=268 time=2675 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=9bbbc6db012fe470cb587651ba6cb341
+RB_TRACE cycle=269 time=2685 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=aaa0fdef4e37f6766f9053d4e65bccd5
+RB_TRACE cycle=270 time=2695 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=d9bcdeb7db6ecf09e3c63349c9455273
+RB_TRACE cycle=271 time=2705 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=b695a36b9b819c35b2a6f2c8bfabb858
+RB_TRACE cycle=272 time=2715 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=a13f6de8abc2110adb7b04f3c18fcf5f
+RB_TRACE cycle=273 time=2725 rst=1 ld=0 done=1 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=762d445363dd5a07bc29a1bf9ce8a45c
+RB_TRACE cycle=274 time=2735 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=bc00ca3b8ef8fd1261c606d24a75273c
+RB_TRACE cycle=275 time=2745 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=2fc9e8dbec890095b79b232878d55de9
+RB_TRACE cycle=276 time=2755 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=800c1e0c9ee193fc6bf30e7770b674ea
+RB_TRACE cycle=277 time=2765 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=8404d163d228f20430b5799cd7d952cb
+RB_TRACE cycle=278 time=2775 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=774dcfa0eb255fb7ce4dc7754f0bb24e
+RB_TRACE cycle=279 time=2785 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=92b340898d1d8b0bb5a3894cb06bfb88
+RB_TRACE cycle=280 time=2795 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=2bb9737cb25beb7ec65f154abba9cbdc
+RB_TRACE cycle=281 time=2805 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=b95809b3ebec63ebc7ef613f187424da
+RB_TRACE cycle=282 time=2815 rst=1 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=f20fdb568a718e6b00c2b1af349a789e
+RB_TRACE cycle=283 time=2825 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=2facd8a31b5c7505e93c5e6abfc3c9ed
+RB_TRACE cycle=284 time=2835 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=be2a4ca29490750f32cd51255edbbe10
+RB_TRACE cycle=285 time=2845 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=c34067a06e56208efc19db5d1546655e
+RB_TRACE cycle=286 time=2855 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=2cbe11c55c3c798798e265d1840284c3
+RB_TRACE cycle=287 time=2865 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=a3972ae82827791f3d0070b57d85c3a9
+- aes_cipher_top_stimulus_gen.sv:106: Verilog $finish
+RB_TRACE cycle=288 time=2875 rst=0 ld=0 done=0 key=0000000000000000000000002a14ffe4 text_in=ffffffffffffffffffffffffabd60036 text_out=4824634453042ef1dabea8964c66d808
+- S i m u l a t i o n   R e p o r t: Verilator 5.030 2024-10-27
+- Verilator: $finish at 3ns; walltime 0.014 s; speed 202.157 ns/s
+- Verilator: cpu 0.014 s on 1 threads; alloced 51 MB
+mv: cannot stat 'wave.vcd': No such file or directory
+make[1]: *** [Makefile:40: run] Error 1
+make[1]: Leaving directory '/run/user/1001/tmphhl0imfk'
+make: *** [Makefile:51: all] Error 2
 
