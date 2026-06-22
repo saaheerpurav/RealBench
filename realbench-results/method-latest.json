@@ -1,7 +1,7 @@
 {
-  "run_id": "27940486515",
-  "sha": "020e10427db1f9eb74c437b4c8fa0f8208261199",
-  "created_at": "2026-06-22T08:46:20.171803+00:00",
+  "run_id": "27942320759",
+  "sha": "544cd44684abaad7473e55494b34f8c9d4579541",
+  "created_at": "2026-06-22T09:19:30.641947+00:00",
   "solution_name": "tdes_auto_decompose",
   "task_level": "system",
   "records": 11,
@@ -16,7 +16,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_count9",
@@ -25,7 +25,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_count10",
@@ -34,7 +34,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_count12",
@@ -43,7 +43,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_count13",
@@ -52,7 +52,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_count14",
@@ -61,7 +61,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_immediate_text_count11",
@@ -70,7 +70,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_hold_text_on_load_count11",
@@ -79,7 +79,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_aeszero_count11",
@@ -88,7 +88,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=66e94bd4ef8a2c3b884cfa59ca342b2e\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_active_high_reset",
@@ -97,7 +97,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     },
     {
       "codeid": "tdes_auto_decompose_aes_cipher_top_v_hold_text_on_reset",
@@ -106,7 +106,7 @@
       "function": 0,
       "formal": -2,
       "syntax_info": "",
-      "function_info": "Output text_out has 287 mismatches. First at time 15\nOutput done signal has 12 mismatches. First at time 305\n"
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
     }
   ]
 }
