@@ -1,6 +1,11 @@
 name: RealBench Verify
 
 on:
+  push:
+    branches:
+      - realbench-actions
+    paths:
+      - ".github/workflows/realbench-verify.yml"
   workflow_dispatch:
     inputs:
       solution_name:
