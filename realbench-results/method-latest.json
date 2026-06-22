@@ -1,11 +1,11 @@
 {
-  "run_id": "27950934705",
-  "sha": "e12400fa89bf9277999d7696e148c4c33e42a454",
-  "created_at": "2026-06-22T12:03:38.805421+00:00",
+  "run_id": "27951682006",
+  "sha": "3d2edbbd16659d93e975618f87f4dcdeb18b42b8",
+  "created_at": "2026-06-22T12:17:04.124647+00:00",
   "solution_name": "tdes_auto_decompose",
   "task_level": "system",
-  "records": 22,
-  "syntax_pass": 22,
+  "records": 24,
+  "syntax_pass": 23,
   "function_pass": 0,
   "formal_pass": 0,
   "rows": [
@@ -206,6 +206,24 @@
       "formal": -2,
       "syntax_info": "",
       "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\nOutput text_trace mismatches idx=0 time=25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=1 time=35 ref=dcdededebfbdbdbddcdededebfbdbdbd dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=2 time=45 ref=17ed8a7b607116e7748ee91803127584 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=3 time=55 ref=475c1cac8034c8ab8b9d7fba471a42fb dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=4 time=65 ref=d3a09476569d4166f6ffe608573785e8 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=5 time=75 ref=c06f367f6d475560a7d7c5432ceb92f2 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=6 time=85 ref=fd4ff5825c04a17b78fa11604bb21656 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=7 time=95 ref=7237454ecded6b39c8abcb52636a952c dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=8 time=105 ref=3ddc26304ba1d09411f0a26204e39438 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=9 time=115 ref=e170b619f5d6c145fecd332f8212505a dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=10 time=125 ref=ea1096be6b1a4ba597a020f8b23d9d60 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=11 time=135 ref=dd4478701d3b6f47454839d9cc34521d dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=12 time=145 ref=3831b2113647588a3f4449f5733297b5 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=13 time=155 ref=582b68df9fd7d4825c14274145752b24 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=14 time=165 ref=bbec7b8d654f5add94d5466193bc5ebf dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=15 time=175 ref=d678e6c1c9757c9e64b4cdd16249c3fe dut=63636363636363636363636363636363\n"
+    },
+    {
+      "codeid": "evo_g2_p0_c0_tdes_auto_decompose_aes_cipher_top_v_reset_sbox0",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\nOutput text_trace mismatches idx=0 time=25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=1 time=35 ref=dcdededebfbdbdbddcdededebfbdbdbd dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=2 time=45 ref=17ed8a7b607116e7748ee91803127584 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=3 time=55 ref=475c1cac8034c8ab8b9d7fba471a42fb dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=4 time=65 ref=d3a09476569d4166f6ffe608573785e8 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=5 time=75 ref=c06f367f6d475560a7d7c5432ceb92f2 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=6 time=85 ref=fd4ff5825c04a17b78fa11604bb21656 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=7 time=95 ref=7237454ecded6b39c8abcb52636a952c dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=8 time=105 ref=3ddc26304ba1d09411f0a26204e39438 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=9 time=115 ref=e170b619f5d6c145fecd332f8212505a dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=10 time=125 ref=ea1096be6b1a4ba597a020f8b23d9d60 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=11 time=135 ref=dd4478701d3b6f47454839d9cc34521d dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=12 time=145 ref=3831b2113647588a3f4449f5733297b5 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=13 time=155 ref=582b68df9fd7d4825c14274145752b24 dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=14 time=165 ref=bbec7b8d654f5add94d5466193bc5ebf dut=63636363636363636363636363636363\nOutput text_trace mismatches idx=15 time=175 ref=d678e6c1c9757c9e64b4cdd16249c3fe dut=63636363636363636363636363636363\n"
+    },
+    {
+      "codeid": "evo_g2_p1_c0_tdes_auto_decompose_aes_cipher_top_v_sequential_",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_top.sv:2:9: Duplicate declaration of signal: 'done'\n%Error: aes_cipher_top_top.sv:3:17: Duplicate declaration of signal: 'text_out'\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
     }
   ]
 }
