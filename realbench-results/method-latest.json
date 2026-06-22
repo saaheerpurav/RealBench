@@ -1,11 +1,11 @@
 {
-  "run_id": "27942320759",
-  "sha": "544cd44684abaad7473e55494b34f8c9d4579541",
-  "created_at": "2026-06-22T09:19:30.641947+00:00",
+  "run_id": "27942591461",
+  "sha": "3d29744e885bb91c6d7189476d28602b5d0c4820",
+  "created_at": "2026-06-22T09:25:19.306407+00:00",
   "solution_name": "tdes_auto_decompose",
   "task_level": "system",
-  "records": 11,
-  "syntax_pass": 11,
+  "records": 19,
+  "syntax_pass": 19,
   "function_pass": 0,
   "formal_pass": 0,
   "rows": [
@@ -107,6 +107,78 @@
       "formal": -2,
       "syntax_info": "",
       "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_sbox0_count11",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_sbox0_load_sbox0_count11",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_active_high_reset_sbox0",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 287 mismatches. First at time 15 ref=63636363636363636363636363636363 dut=00000000000000000000000000000000\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_sbox0_count9",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_sbox0_count10",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_sbox0_count12",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_sbox0_count13",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\n"
+    },
+    {
+      "codeid": "tdes_auto_decompose_aes_cipher_top_v_reset_sbox0_count14",
+      "task": "aes_cipher_top",
+      "syntax": 1,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "",
+      "function_info": "Output text_out has 286 mismatches. First at time 25 ref=98989898989898989898989898989898 dut=63636363636363636363636363636363\nOutput done signal has 12 mismatches. First at time 305\n"
     }
   ]
 }
