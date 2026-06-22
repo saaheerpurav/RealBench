@@ -1,21 +1,21 @@
 {
-  "run_id": "27938921396",
-  "sha": "a90b2e2732aeb236262ec37a181bfbfb41145272",
-  "created_at": "2026-06-22T08:14:46.773042+00:00",
+  "run_id": "27939043019",
+  "sha": "1f9ba5fb3fceb59716df368f066c009f315b7f14",
+  "created_at": "2026-06-22T08:17:18.565734+00:00",
   "solution_name": "codev-qwen-7b",
-  "effective_solution": "codev-qwen-7b-smoke-1",
+  "effective_solution": "codev-qwen-7b",
   "task_level": "system",
-  "run_scope": "smoke",
+  "run_scope": "full",
   "max_per_task": "1",
   "num_samples": "1",
   "formal_requested": "false",
-  "total_records": 4,
+  "total_records": 80,
   "syntax_pass": 0,
   "function_pass": 0,
   "formal_pass": 0,
   "rows": [
     {
-      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
       "task": "sdc_controller",
       "syntax": 0,
       "function": 0,
@@ -24,7 +24,178 @@
       "function_info": ""
     },
     {
-      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:707:1: Redefining existing define: 'SD_BUS_W', with different value: ''\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 11 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:22: Redefining existing define: 'MEM_OFFSET', with different value: '2'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '4'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_top.sv:26:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:27:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:28:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:29:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:30:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:31:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:32:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:33:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:34:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:35:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:36:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:37:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:38:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:39:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:40:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:41:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:42:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:43:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:44:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:45:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:46:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:47:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:48:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:49:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:50:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:51:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:52:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:53:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:54:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:55:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:56:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:57:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:58:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:59:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:60:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:61:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:62:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:63:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:64:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:65:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:66:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:67:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:68:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:69:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:70:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:71:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:72:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:73:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:74:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:75:1: `endif with no matching `if\n%Error: Exiting due to too many errors encountered; --error-limit=50\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b01'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_top.sv:26:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:27:1: syntax error, unexpected endmodule\n%Error: Exiting due to 2 error(s), 9 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:22: Redefining existing define: 'MEM_OFFSET', with different value: '2'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_top.sv:26:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:27:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:28:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:29:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:30:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:31:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:32:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:33:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:34:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:35:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:36:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:37:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:38:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:39:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:40:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:41:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:42:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:43:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:44:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:45:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:46:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:47:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:48:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:49:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:50:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:51:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:52:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:53:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:54:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:55:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:56:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:57:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:58:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:59:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:60:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:61:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:62:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:63:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:64:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:65:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:66:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:67:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:68:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:69:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:70:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:71:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:72:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:73:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:74:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:75:1: `endif with no matching `if\n%Error: Exiting due to too many errors encountered; --error-limit=50\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_top.sv:62:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:63:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:64:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:65:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:66:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:67:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:68:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:69:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:70:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:71:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:72:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:73:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:74:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:75:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:76:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:77:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:78:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:79:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:80:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:81:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:82:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:83:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:84:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:85:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:86:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:87:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:88:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:89:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:90:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:91:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:92:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:93:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:94:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:95:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:96:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:97:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:98:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:99:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:100:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:101:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:102:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:103:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:104:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:105:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:106:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:107:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:108:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:109:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:110:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:111:1: `endif with no matching `if\n%Error: Exiting due to too many errors encountered; --error-limit=50\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_top.sv:517:1: Expecting define name. Found: EOF\n%Error: Exiting due to 1 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b11'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_top.sv:62:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:63:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:64:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:65:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:66:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:67:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:68:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:69:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:70:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:71:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:72:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:73:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:74:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:75:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:76:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:77:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:78:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:79:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:80:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:81:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:82:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:83:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:84:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:85:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:86:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:87:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:88:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:89:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:90:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:91:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:92:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:93:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:94:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:95:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:96:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:97:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:98:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:99:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:100:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:101:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:102:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:103:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:104:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:105:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:106:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:107:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:108:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:109:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:110:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:111:1: `endif with no matching `if\n%Error: Exiting due to too many errors encountered; --error-limit=50\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:22: Redefining existing define: 'MEM_OFFSET', with different value: '2'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:30: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:32: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:31: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:30: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:34: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:30: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:59: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '$clog2(FIFO_RX_MEM_DEPTH)+1'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:59: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '$clog2(FIFO_TX_MEM_DEPTH)+1'\n%Error: sdc_controller_top.sv:26:1: `endif with no matching `if\n%Error: sdc_controller_top.sv:27:1: syntax error, unexpected endmodule\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b01'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b01'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '256'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '256'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '8'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '7'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '4'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:22: Redefining existing define: 'MEM_OFFSET', with different value: '2'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '4'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:297:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '271'\n%Warning-REDEFMACRO: sdc_controller_top.sv:298:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '272'\n%Warning-REDEFMACRO: sdc_controller_top.sv:299:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '272'\n%Warning-REDEFMACRO: sdc_controller_top.sv:300:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '273'\n%Warning-REDEFMACRO: sdc_controller_top.sv:301:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '273'\n%Warning-REDEFMACRO: sdc_controller_top.sv:302:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '274'\n%Warning-REDEFMACRO: sdc_controller_top.sv:303:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '274'\n%Warning-REDEFMACRO: sdc_controller_top.sv:304:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '275'\n%Warning-REDEFMACRO: sdc_controller_top.sv:305:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '275'\n%Warning-REDEFMACRO: sdc_controller_top.sv:306:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '276'\n%Warning-REDEFMACRO: sdc_controller_top.sv:307:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '276'\n%Warning-REDEFMACRO: sdc_controller_top.sv:308:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '277'\n%Warning-REDEFMACRO: sdc_controller_top.sv:309:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '277'\n%Warning-REDEFMACRO: sdc_controller_top.sv:310:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '278'\n%Warning-REDEFMACRO: sdc_controller_top.sv:311:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '278'\n%Warning-REDEFMACRO: sdc_controller_top.sv:312:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '279'\n%Warning-REDEFMACRO: sdc_controller_top.sv:313:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '279'\n%Warning-REDEFMACRO: sdc_controller_top.sv:314:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '280'\n%Warning-REDEFMACRO: sdc_controller_top.sv:315:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '280'\n%Warning-REDEFMACRO: sdc_controller_top.sv:316:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '281'\n%Warning-REDEFMACRO: sdc_controller_top.sv:317:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '281'\n%Warning-REDEFMACRO: sdc_controller_top.sv:318:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '282'\n%Warning-REDEFMACRO: sdc_controller_top.sv:319:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '282'\n%Warning-REDEFMACRO: sdc_controller_top.sv:320:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '283'\n%Warning-REDEFMACRO: sdc_controller_top.sv:321:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '283'\n%Warning-REDEFMACRO: sdc_controller_top.sv:322:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '284'\n%Warning-REDEFMACRO: sdc_controller_top.sv:323:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '284'\n%Warning-REDEFMACRO: sdc_controller_top.sv:324:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '285'\n%Warning-REDEFMACRO: sdc_controller_top.sv:325:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '285'\n%Warning-REDEFMACRO: sdc_controller_top.sv:326:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '286'\n%Warning-REDEFMACRO: sdc_controller_top.sv:327:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '286'\n%Warning-REDEFMACRO: sdc_controller_top.sv:328:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '287'\n%Warning-REDEFMACRO: sdc_controller_top.sv:329:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '287'\n%Warning-REDEFMACRO: sdc_controller_top.sv:330:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '288'\n%Warning-REDEFMACRO: sdc_controller_top.sv:331:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '288'\n%Warning-REDEFMACRO: sdc_controller_top.sv:332:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '289'\n%Warning-REDEFMACRO: sdc_controller_top.sv:333:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '289'\n%Warning-REDEFMACRO: sdc_controller_top.sv:334:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '290'\n%Warning-REDEFMACRO: sdc_controller_top.sv:335:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '290'\n%Warning-REDEFMACRO: sdc_controller_top.sv:336:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '291'\n%Warning-REDEFMACRO: sdc_controller_top.sv:337:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '291'\n%Warning-REDEFMACRO: sdc_controller_top.sv:338:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '292'\n%Warning-REDEFMACRO: sdc_controller_top.sv:339:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '292'\n%Warning-REDEFMACRO: sdc_controller_top.sv:340:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '293'\n%Warning-REDEFMACRO: sdc_controller_top.sv:341:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '293'\n%Warning-REDEFMACRO: sdc_controller_top.sv:342:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '294'\n%Warning-REDEFMACRO: sdc_controller_top.sv:343:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '294'\n%Warning-REDEFMACRO: sdc_controller_top.sv:344:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '295'\n%Warning-REDEFMACRO: sdc_controller_top.sv:345:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '295'\n%Warning-REDEFMACRO: sdc_controller_top.sv:346:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '296'\n%Warning-REDEFMACRO: sdc_controller_top.sv:347:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '296'\n%Warning-REDEFMACRO: sdc_controller_top.sv:348:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '297'\n%Warning-REDEFMACRO: sdc_controller_top.sv:349:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '297'\n%Warning-REDEFMACRO: sdc_controller_top.sv:350:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '298'\n%Warning-REDEFMACRO: sdc_controller_top.sv:351:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '298'\n%Warning-REDEFMACRO: sdc_controller_top.sv:352:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '299'\n%Warning-REDEFMACRO: sdc_controller_top.sv:353:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '299'\n%Warning-REDEFMACRO: sdc_controller_top.sv:354:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '300'\n%Warning-REDEFMACRO: sdc_controller_top.sv:355:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '300'\n%Warning-REDEFMACRO: sdc_controller_top.sv:356:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '301'\n%Warning-REDEFMACRO: sdc_controller_top.sv:357:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '301'\n%Warning-REDEFMACRO: sdc_controller_top.sv:358:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '302'\n%Warning-REDEFMACRO: sdc_controller_top.sv:359:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '302'\n%Warning-REDEFMACRO: sdc_controller_top.sv:360:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '303'\n%Warning-REDEFMACRO: sdc_controller_top.sv:361:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '303'\n%Warning-REDEFMACRO: sdc_controller_top.sv:362:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '304'\n%Warning-REDEFMACRO: sdc_controller_top.sv:363:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '304'\n%Warning-REDEFMACRO: sdc_controller_top.sv:364:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '305'\n%Warning-REDEFMACRO: sdc_controller_top.sv:365:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '305'\n%Warning-REDEFMACRO: sdc_controller_top.sv:366:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '306'\n%Warning-REDEFMACRO: sdc_controller_top.sv:367:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '306'\n%Warning-REDEFMACRO: sdc_controller_top.sv:368:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '307'\n%Warning-REDEFMACRO: sdc_controller_top.sv:369:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '307'\n%Warning-REDEFMACRO: sdc_controller_top.sv:370:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '308'\n%Warning-REDEFMACRO: sdc_controller_top.sv:371:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '308'\n%Warning-REDEFMACRO: sdc_controller_top.sv:372:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '309'\n%Warning-REDEFMACRO: sdc_controller_top.sv:373:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '309'\n%Warning-REDEFMACRO: sdc_controller_top.sv:374:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '310'\n%Warning-REDEFMACRO: sdc_controller_top.sv:375:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '310'\n%Warning-REDEFMACRO: sdc_controller_top.sv:376:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '311'\n%Warning-REDEFMACRO: sdc_controller_top.sv:377:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '311'\n%Warning-REDEFMACRO: sdc_controller_top.sv:378:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '312'\n%Warning-REDEFMACRO: sdc_controller_top.sv:379:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '312'\n%Warning-REDEFMACRO: sdc_controller_top.sv:380:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '313'\n%Warning-REDEFMACRO: sdc_controller_top.sv:381:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '313'\n%Warning-REDEFMACRO: sdc_controller_top.sv:382:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '314'\n%Warning-REDEFMACRO: sdc_controller_top.sv:383:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '314'\n%Warning-REDEFMACRO: sdc_controller_top.sv:384:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '315'\n%Warning-REDEFMACRO: sdc_controller_top.sv:385:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '315'\n%Warning-REDEFMACRO: sdc_controller_top.sv:386:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '316'\n%Warning-REDEFMACRO: sdc_controller_top.sv:387:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '316'\n%Warning-REDEFMACRO: sdc_controller_top.sv:388:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '317'\n%Warning-REDEFMACRO: sdc_controller_top.sv:389:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '317'\n%Warning-REDEFMACRO: sdc_controller_top.sv:390:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '318'\n%Warning-REDEFMACRO: sdc_controller_top.sv:391:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '318'\n%Warning-REDEFMACRO: sdc_controller_top.sv:392:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '319'\n%Warning-REDEFMACRO: sdc_controller_top.sv:393:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '319'\n%Warning-REDEFMACRO: sdc_controller_top.sv:394:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '320'\n%Warning-REDEFMACRO: sdc_controller_top.sv:395:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '320'\n%Warning-REDEFMACRO: sdc_controller_top.sv:396:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '321'\n%Warning-REDEFMACRO: sdc_controller_top.sv:397:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '321'\n%Warning-REDEFMACRO: sdc_controller_top.sv:398:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '322'\n%Warning-REDEFMACRO: sdc_controller_top.sv:399:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '322'\n%Warning-REDEFMACRO: sdc_controller_top.sv:400:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '323'\n%Warning-REDEFMACRO: sdc_controller_top.sv:401:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '323'\n%Warning-REDEFMACRO: sdc_controller_top.sv:402:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '324'\n%Warning-REDEFMACRO: sdc_controller_top.sv:403:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '324'\n%Warning-REDEFMACRO: sdc_controller_top.sv:404:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '325'\n%Warning-REDEFMACRO: sdc_controller_top.sv:405:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '325'\n%Warning-REDEFMACRO: sdc_controller_top.sv:406:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '326'\n%Warning-REDEFMACRO: sdc_controller_top.sv:407:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '326'\n%Warning-REDEFMACRO: sdc_controller_top.sv:408:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '327'\n%Warning-REDEFMACRO: sdc_controller_top.sv:409:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '327'\n%Warning-REDEFMACRO: sdc_controller_top.sv:410:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '328'\n%Warning-REDEFMACRO: sdc_controller_top.sv:411:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '328'\n%Warning-REDEFMACRO: sdc_controller_top.sv:412:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '329'\n%Warning-REDEFMACRO: sdc_controller_top.sv:413:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '329'\n%Warning-REDEFMACRO: sdc_controller_top.sv:414:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '330'\n%Warning-REDEFMACRO: sdc_controller_top.sv:415:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '330'\n%Warning-REDEFMACRO: sdc_controller_top.sv:416:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '331'\n%Warning-REDEFMACRO: sdc_controller_top.sv:417:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '331'\n%Warning-REDEFMACRO: sdc_controller_top.sv:418:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '332'\n%Warning-REDEFMACRO: sdc_controller_top.sv:419:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '332'\n%Warning-REDEFMACRO: sdc_controller_top.sv:420:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '333'\n%Warning-REDEFMACRO: sdc_controller_top.sv:421:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '333'\n%Warning-REDEFMACRO: sdc_controller_top.sv:422:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '334'\n%Warning-REDEFMACRO: sdc_controller_top.sv:423:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '334'\n%Warning-REDEFMACRO: sdc_controller_top.sv:424:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '335'\n%Warning-REDEFMACRO: sdc_controller_top.sv:425:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '335'\n%Warning-REDEFMACRO: sdc_controller_top.sv:426:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '336'\n%Warning-REDEFMACRO: sdc_controller_top.sv:427:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '336'\n%Warning-REDEFMACRO: sdc_controller_top.sv:428:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '337'\n%Warning-REDEFMACRO: sdc_controller_top.sv:429:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '337'\n%Warning-REDEFMACRO: sdc_controller_top.sv:430:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '338'\n%Warning-REDEFMACRO: sdc_controller_top.sv:431:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '338'\n%Warning-REDEFMACRO: sdc_controller_top.sv:432:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '339'\n%Warning-REDEFMACRO: sdc_controller_top.sv:433:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '339'\n%Warning-REDEFMACRO: sdc_controller_top.sv:434:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '340'\n%Warning-REDEFMACRO: sdc_controller_top.sv:435:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '340'\n%Warning-REDEFMACRO: sdc_controller_top.sv:436:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '341'\n%Warning-REDEFMACRO: sdc_controller_top.sv:437:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '341'\n%Warning-REDEFMACRO: sdc_controller_top.sv:438:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '342'\n%Warning-REDEFMACRO: sdc_controller_top.sv:439:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '342'\n%Warning-REDEFMACRO: sdc_controller_top.sv:440:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '343'\n%Warning-REDEFMACRO: sdc_controller_top.sv:441:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '343'\n%Warning-REDEFMACRO: sdc_controller_top.sv:442:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '344'\n%Warning-REDEFMACRO: sdc_controller_top.sv:443:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '344'\n%Warning-REDEFMACRO: sdc_controller_top.sv:444:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '345'\n%Warning-REDEFMACRO: sdc_controller_top.sv:445:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '345'\n%Warning-REDEFMACRO: sdc_controller_top.sv:446:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '346'\n%Warning-REDEFMACRO: sdc_controller_top.sv:447:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '346'\n%Warning-REDEFMACRO: sdc_controller_top.sv:448:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '347'\n%Warning-REDEFMACRO: sdc_controller_top.sv:449:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '347'\n%Warning-REDEFMACRO: sdc_controller_top.sv:450:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '348'\n%Warning-REDEFMACRO: sdc_controller_top.sv:451:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '348'\n%Warning-REDEFMACRO: sdc_controller_top.sv:452:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '349'\n%Warning-REDEFMACRO: sdc_controller_top.sv:453:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '349'\n%Warning-REDEFMACRO: sdc_controller_top.sv:454:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '350'\n%Warning-REDEFMACRO: sdc_controller_top.sv:455:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '350'\n%Warning-REDEFMACRO: sdc_controller_top.sv:456:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '351'\n%Warning-REDEFMACRO: sdc_controller_top.sv:457:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '351'\n%Warning-REDEFMACRO: sdc_controller_top.sv:458:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '352'\n%Warning-REDEFMACRO: sdc_controller_top.sv:459:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '352'\n%Warning-REDEFMACRO: sdc_controller_top.sv:460:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '353'\n%Warning-REDEFMACRO: sdc_controller_top.sv:461:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '353'\n%Warning-REDEFMACRO: sdc_controller_top.sv:462:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '354'\n%Warning-REDEFMACRO: sdc_controller_top.sv:463:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '354'\n%Warning-REDEFMACRO: sdc_controller_top.sv:464:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '355'\n%Warning-REDEFMACRO: sdc_controller_top.sv:465:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '355'\n%Warning-REDEFMACRO: sdc_controller_top.sv:466:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '356'\n%Warning-REDEFMACRO: sdc_controller_top.sv:467:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '356'\n%Warning-REDEFMACRO: sdc_controller_top.sv:468:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '357'\n%Warning-REDEFMACRO: sdc_controller_top.sv:469:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '357'\n%Warning-REDEFMACRO: sdc_controller_top.sv:470:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '358'\n%Warning-REDEFMACRO: sdc_controller_top.sv:471:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '358'\n%Warning-REDEFMACRO: sdc_controller_top.sv:472:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '359'\n%Warning-REDEFMACRO: sdc_controller_top.sv:473:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '359'\n%Warning-REDEFMACRO: sdc_controller_top.sv:474:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '360'\n%Warning-REDEFMACRO: sdc_controller_top.sv:475:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '360'\n%Warning-REDEFMACRO: sdc_controller_top.sv:476:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '361'\n%Warning-REDEFMACRO: sdc_controller_top.sv:477:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '361'\n%Warning-REDEFMACRO: sdc_controller_top.sv:478:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '362'\n%Warning-REDEFMACRO: sdc_controller_top.sv:479:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '362'\n%Warning-REDEFMACRO: sdc_controller_top.sv:480:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '363'\n%Warning-REDEFMACRO: sdc_controller_top.sv:481:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '363'\n%Warning-REDEFMACRO: sdc_controller_top.sv:482:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '364'\n%Warning-REDEFMACRO: sdc_controller_top.sv:483:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '364'\n%Warning-REDEFMACRO: sdc_controller_top.sv:484:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '365'\n%Warning-REDEFMACRO: sdc_controller_top.sv:485:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '365'\n%Warning-REDEFMACRO: sdc_controller_top.sv:486:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '366'\n%Warning-REDEFMACRO: sdc_controller_top.sv:487:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '366'\n%Warning-REDEFMACRO: sdc_controller_top.sv:488:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '367'\n%Warning-REDEFMACRO: sdc_controller_top.sv:489:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '367'\n%Warning-REDEFMACRO: sdc_controller_top.sv:490:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '368'\n%Warning-REDEFMACRO: sdc_controller_top.sv:491:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '368'\n%Warning-REDEFMACRO: sdc_controller_top.sv:492:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '369'\n%Warning-REDEFMACRO: sdc_controller_top.sv:493:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '369'\n%Warning-REDEFMACRO: sdc_controller_top.sv:494:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '370'\n%Warning-REDEFMACRO: sdc_controller_top.sv:495:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '370'\n%Warning-REDEFMACRO: sdc_controller_top.sv:496:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '371'\n%Warning-REDEFMACRO: sdc_controller_top.sv:497:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '371'\n%Warning-REDEFMACRO: sdc_controller_top.sv:498:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '372'\n%Warning-REDEFMACRO: sdc_controller_top.sv:499:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '372'\n%Warning-REDEFMACRO: sdc_controller_top.sv:500:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '373'\n%Warning-REDEFMACRO: sdc_controller_top.sv:501:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '373'\n%Warning-REDEFMACRO: sdc_controller_top.sv:502:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '374'\n%Warning-REDEFMACRO: sdc_controller_top.sv:503:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '374'\n%Warning-REDEFMACRO: sdc_controller_top.sv:504:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '375'\n%Warning-REDEFMACRO: sdc_controller_top.sv:505:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '375'\n%Warning-REDEFMACRO: sdc_controller_top.sv:506:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '376'\n%Warning-REDEFMACRO: sdc_controller_top.sv:507:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '376'\n%Warning-REDEFMACRO: sdc_controller_top.sv:508:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '377'\n%Warning-REDEFMACRO: sdc_controller_top.sv:509:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '377'\n%Warning-REDEFMACRO: sdc_controller_top.sv:510:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '378'\n%Warning-REDEFMACRO: sdc_controller_top.sv:511:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '378'\n%Warning-REDEFMACRO: sdc_controller_top.sv:512:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '379'\n%Warning-REDEFMACRO: sdc_controller_top.sv:513:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '379'\n%Warning-REDEFMACRO: sdc_controller_top.sv:514:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '380'\n%Warning-REDEFMACRO: sdc_controller_top.sv:515:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '380'\n%Warning-REDEFMACRO: sdc_controller_top.sv:516:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '381'\n%Warning-REDEFMACRO: sdc_controller_top.sv:517:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '381'\n%Warning-REDEFMACRO: sdc_controller_top.sv:518:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '382'\n%Warning-REDEFMACRO: sdc_controller_top.sv:519:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '382'\n%Warning-REDEFMACRO: sdc_controller_top.sv:520:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '383'\n%Warning-REDEFMACRO: sdc_controller_top.sv:521:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '383'\n%Warning-REDEFMACRO: sdc_controller_top.sv:522:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '384'\n%Warning-REDEFMACRO: sdc_controller_top.sv:523:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '384'\n%Warning-REDEFMACRO: sdc_controller_top.sv:524:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '385'\n%Warning-REDEFMACRO: sdc_controller_top.sv:525:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '385'\n%Warning-REDEFMACRO: sdc_controller_top.sv:526:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '386'\n%Warning-REDEFMACRO: sdc_controller_top.sv:527:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '386'\n%Warning-REDEFMACRO: sdc_controller_top.sv:528:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '387'\n%Warning-REDEFMACRO: sdc_controller_top.sv:529:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '387'\n%Warning-REDEFMACRO: sdc_controller_top.sv:530:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '388'\n%Warning-REDEFMACRO: sdc_controller_top.sv:531:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '388'\n%Warning-REDEFMACRO: sdc_controller_top.sv:532:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '389'\n%Warning-REDEFMACRO: sdc_controller_top.sv:533:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '389'\n%Warning-REDEFMACRO: sdc_controller_top.sv:534:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '390'\n%Warning-REDEFMACRO: sdc_controller_top.sv:535:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '390'\n%Warning-REDEFMACRO: sdc_controller_top.sv:536:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '391'\n%Warning-REDEFMACRO: sdc_controller_top.sv:537:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '391'\n%Warning-REDEFMACRO: sdc_controller_top.sv:538:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '392'\n%Warning-REDEFMACRO: sdc_controller_top.sv:539:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '392'\n%Warning-REDEFMACRO: sdc_controller_top.sv:540:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '393'\n%Warning-REDEFMACRO: sdc_controller_top.sv:541:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '393'\n%Warning-REDEFMACRO: sdc_controller_top.sv:542:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '394'\n%Warning-REDEFMACRO: sdc_controller_top.sv:543:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '394'\n%Warning-REDEFMACRO: sdc_controller_top.sv:544:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '395'\n%Warning-REDEFMACRO: sdc_controller_top.sv:545:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '395'\n%Warning-REDEFMACRO: sdc_controller_top.sv:546:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '396'\n%Warning-REDEFMACRO: sdc_controller_top.sv:547:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '396'\n%Warning-REDEFMACRO: sdc_controller_top.sv:548:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '397'\n%Warning-REDEFMACRO: sdc_controller_top.sv:549:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '397'\n%Warning-REDEFMACRO: sdc_controller_top.sv:550:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '398'\n%Warning-REDEFMACRO: sdc_controller_top.sv:551:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '398'\n%Warning-REDEFMACRO: sdc_controller_top.sv:552:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '399'\n%Warning-REDEFMACRO: sdc_controller_top.sv:553:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '399'\n%Warning-REDEFMACRO: sdc_controller_top.sv:554:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '400'\n%Warning-REDEFMACRO: sdc_controller_top.sv:555:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '400'\n%Warning-REDEFMACRO: sdc_controller_top.sv:556:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '401'\n%Warning-REDEFMACRO: sdc_controller_top.sv:557:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '401'\n%Warning-REDEFMACRO: sdc_controller_top.sv:558:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '402'\n%Warning-REDEFMACRO: sdc_controller_top.sv:559:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '402'\n%Warning-REDEFMACRO: sdc_controller_top.sv:560:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '403'\n%Warning-REDEFMACRO: sdc_controller_top.sv:561:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '403'\n%Warning-REDEFMACRO: sdc_controller_top.sv:562:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '404'\n%Warning-REDEFMACRO: sdc_controller_top.sv:563:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '404'\n%Warning-REDEFMACRO: sdc_controller_top.sv:564:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '405'\n%Warning-REDEFMACRO: sdc_controller_top.sv:565:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '405'\n%Warning-REDEFMACRO: sdc_controller_top.sv:566:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '406'\n%Warning-REDEFMACRO: sdc_controller_top.sv:567:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '406'\n%Warning-REDEFMACRO: sdc_controller_top.sv:568:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '407'\n%Warning-REDEFMACRO: sdc_controller_top.sv:569:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '407'\n%Warning-REDEFMACRO: sdc_controller_top.sv:570:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '408'\n%Warning-REDEFMACRO: sdc_controller_top.sv:571:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '408'\n%Warning-REDEFMACRO: sdc_controller_top.sv:572:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '409'\n%Warning-REDEFMACRO: sdc_controller_top.sv:573:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '409'\n%Warning-REDEFMACRO: sdc_controller_top.sv:574:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '410'\n%Warning-REDEFMACRO: sdc_controller_top.sv:575:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '410'\n%Warning-REDEFMACRO: sdc_controller_top.sv:576:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '411'\n%Warning-REDEFMACRO: sdc_controller_top.sv:577:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '411'\n%Warning-REDEFMACRO: sdc_controller_top.sv:578:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '412'\n%Warning-REDEFMACRO: sdc_controller_top.sv:579:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '412'\n%Warning-REDEFMACRO: sdc_controller_top.sv:580:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '413'\n%Warning-REDEFMACRO: sdc_controller_top.sv:581:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '413'\n%Warning-REDEFMACRO: sdc_controller_top.sv:582:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '414'\n%Warning-REDEFMACRO: sdc_controller_top.sv:583:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '414'\n%Warning-REDEFMACRO: sdc_controller_top.sv:584:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '415'\n%Warning-REDEFMACRO: sdc_controller_top.sv:585:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '415'\n%Warning-REDEFMACRO: sdc_controller_top.sv:586:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '416'\n%Warning-REDEFMACRO: sdc_controller_top.sv:587:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '416'\n%Warning-REDEFMACRO: sdc_controller_top.sv:588:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '417'\n%Warning-REDEFMACRO: sdc_controller_top.sv:589:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '417'\n%Warning-REDEFMACRO: sdc_controller_top.sv:590:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '418'\n%Warning-REDEFMACRO: sdc_controller_top.sv:591:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_267', with different value: '418'\n%Warning-REDEFMACRO: sdc_controller_top.sv:592:36: Redefining existing define: 'SD_BUS_W_LOG2_PLUS_268', with different value: '419'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 306 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:25: Redefining existing define: 'MEM_OFFSET', with different value: '2'd1'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 9 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b11'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '8'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 9 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:9:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:10:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:12:26: Redefining existing define: 'RAM_MEM_WIDTH', with different value: '32'\n%Warning-REDEFMACRO: sdc_controller_top.sv:13:26: Redefining existing define: 'RESEND_MAX_CNT', with different value: '5'\n%Warning-REDEFMACRO: sdc_controller_top.sv:14:26: Redefining existing define: 'MEM_OFFSET', with different value: '2'b10'\n%Warning-REDEFMACRO: sdc_controller_top.sv:15:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:23:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:24:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:25:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:26:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 10 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "sdc_controller",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Warning-REDEFMACRO: sdc_controller_top.sv:59:31: Redefining existing define: 'FIFO_RX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:60:32: Redefining existing define: 'FIFO_RX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:61:31: Redefining existing define: 'FIFO_TX_MEM_DEPTH', with different value: '512'\n%Warning-REDEFMACRO: sdc_controller_top.sv:62:32: Redefining existing define: 'FIFO_TX_MEM_ADR_SIZE', with different value: '9'\n%Warning-REDEFMACRO: sdc_controller_top.sv:63:21: Redefining existing define: 'BD_SIZE', with different value: '255'\n%Warning-REDEFMACRO: sdc_controller_top.sv:64:20: Redefining existing define: 'BD_WIDTH', with different value: '8'\n%Warning-REDEFMACRO: sdc_controller_top.sv:65:22: Redefining existing define: 'MEM_OFFSET', with different value: '2'\n%Warning-REDEFMACRO: sdc_controller_top.sv:66:25: Redefining existing define: 'RESET_CLK_DIV', with different value: '1'\n%Error: sdc_controller_testbench.sv:231:2: Cannot find file containing module: 'sdc_controller'\n%Error: sdc_controller_testbench.sv:231:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s), 8 warning(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
       "task": "aes_cipher_top",
       "syntax": 0,
       "function": 0,
@@ -33,7 +204,178 @@
       "function_info": ""
     },
     {
-      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_cipher_top'\n%Error: aes_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
       "task": "aes_inv_cipher_top",
       "syntax": 0,
       "function": 0,
@@ -42,7 +384,349 @@
       "function_info": ""
     },
     {
-      "file": "samples_after_verilator/codev-qwen-7b-smoke-1/system.jsonl",
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_top.sv:1886:25: syntax error, unexpected end of file, expecting ','\n%Error: Cannot continue\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_top.sv:111:39: Number is missing value digits: 8'h\n%Error: aes_inv_cipher_top_top.sv:111:42: syntax error, unexpected IDENTIFIER, expecting ';'\n%Error: Cannot continue\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_top.sv:84:26: Number is missing value digits: 8'h\n%Error: aes_inv_cipher_top_top.sv:84:29: syntax error, unexpected IDENTIFIER, expecting ',' or ';'\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "aes_inv_cipher_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: aes_inv_cipher_top_testbench.sv:59:5: Cannot find file containing module: 'aes_inv_cipher_top'\n%Error: aes_inv_cipher_top_testbench.sv:59:5: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
+      "task": "e203_cpu_top",
+      "syntax": 0,
+      "function": 0,
+      "formal": -2,
+      "syntax_info": "%Error: e203_cpu_top_testbench.sv:475:2: Cannot find file containing module: 'e203_cpu_top'\n%Error: e203_cpu_top_testbench.sv:475:2: This may be because there's no search path specified with -I<dir>.\n%Error: Exiting due to 2 error(s)\n",
+      "function_info": ""
+    },
+    {
+      "file": "samples_after_verilator/codev-qwen-7b/system.jsonl",
       "task": "e203_cpu_top",
       "syntax": 0,
       "function": 0,
